@@ -1,4 +1,35 @@
 /*Write a program to check for Leap Year*/
 
-Note : 
-1. 
+--------------------------------------------------------------------------------------------------------------------
+▪ Leap Year Contains 366 days, which comes every four years.
+▪ Every Leap Year Corresponding to these facts:
+i. A Century year (that is year ending with 00) is a leap year only if it is divisible by 
+400.
+ii. A leap year (except a century year) can be identified if it is exactly divisible by 4.
+iii. A Century year should be divisible by 4 and 100 both.
+iv. A non-century year should be divisible only by 4.
+ Logic:
+ 
+ if (year % 400 = =0      ||   year %4= = 0 && year %100! =0)
+(In case of Century Year)      (In case of non-century Year)
+----------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int year = 2023;
+        leapyear(year);
+    }
+    static void leapyear(int year)
+    {
+        if (year%400==0 && year%4==0 || year%100!=0)
+        {
+            System.out.println(year+" is a leap year");
+        }
+        else
+        {
+            System.out.println(year+" is not a leap year");
+        }
+    }
+}
