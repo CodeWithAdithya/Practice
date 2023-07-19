@@ -16,4 +16,5 @@ public class Codes
         return num2;
     }
 }
-
+Output:
+9
