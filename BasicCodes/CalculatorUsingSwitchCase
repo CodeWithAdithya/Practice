@@ -1,0 +1,35 @@
+/*Write a program to create Calculator using Switch Case in Java*/
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int num1 = 20, num2 = 45;
+        calculator(num1,num2);
+    }
+    static void calculator(int num1, int num2)
+    {
+       int result;
+       String s = "+";
+
+       switch (s)
+       {
+           case  "+" : result = num1+num2;
+               System.out.println(result);
+               break;
+           case "-" : result = num1-num2;
+               System.out.println(result);
+               break;
+           case "*" : result= num1*num2;
+               System.out.println(result);
+               break;
+           case "%" : result = num1%num2;
+               System.out.println(result);
+               break;
+           default:
+               System.out.println("Invalid Input");
+       }
+    }
+}
+Output:
+65
