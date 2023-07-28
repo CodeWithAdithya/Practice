@@ -1,0 +1,48 @@
+/* Write a program to print swapping of two numbers using Bitwise Operator*/
+
+Example :
+num1 = 5 = 0101
+num2 = 9 = 1001
+
+Condition : 
+num1 = num1^num2 -------> 0 1 0 1
+                          1 0 0 1
+                          -------
+                          1 1 0 0
+                          -------
+
+num2 = num1^num2 -------> 1 1 0 0
+                          1 0 0 1
+                          -------
+                          0 1 0 1
+                          -------
+
+num1 = num1^num2 -------> 1 1 0 0
+                          0 1 0 1
+                          -------
+                          1 0 0 1
+                          -------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int num1 = 5;
+        int num2 = 9;
+        swapUsingBitwise(num1,num2);
+    }
+    static void swapUsingBitwise(int num1,int num2)
+    {
+        System.out.println("Before Swapping: num1 = "+num1+" num2 = "+num2);
+        num1=num1^num2;
+        num2=num1^num2;
+        num1=num1^num2;
+        System.out.println("After Swapping: num1 = "+num1+" num2 = "+num2);
+    }
+}
+
+Output:
+Before Swapping: num1 = 5 num2 = 9
+After Swapping: num1 = 9 num2 = 5
