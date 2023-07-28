@@ -1,0 +1,40 @@
+/* Write a program to print the perfect number */
+
+Example:
+i. 6 – 1,2,3 (factors of 6)
+ = 1+2+3
+ =6 (perfect number)
+ii. 28 – 1,2,4,7,14 (factors of 8)
+ = 1+2+4+7+14
+ = 28 (perfect number)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int num = 28;
+        perfectNumber(num);
+    }
+    static void perfectNumber(int num)
+    {
+        int result =0;
+        for (int i = 1; i <num ; i++)
+        {
+         if (num%i==0)
+         {
+             result = result + i;
+         }
+        }
+        if (result==num)
+        {
+            System.out.println(num+" is a perfect number");
+        }
+        else
+        {
+            System.out.println(num+" is not a perfect number");
+        }
+    }
+}
+Output:
+28 is a perfect number
