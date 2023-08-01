@@ -1,0 +1,63 @@
+/* Write a program to print LCM and GCD of two numbers */
+
+Greatest Common Divisor : 
+It is the highest number that completely divides two or more numbers. It is abbreviated 
+for GCD. It is also known as the Greatest Common Factor (GCF) and the Highest Common 
+Factor (HCF). It is used to simplify the fractions.
+Example: Find the GCF of 12 and 8.
+Factors of 12: 1, 2, 3, 4, 6, 12
+Factors of 8: 1, 2, 4, 8
+Common Factors: 1, 2, 4
+Greatest Common Factor: 4
+Hence, the GCF of 12 and 8 is 4.
+
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+Least Common Multiple : 
+LCM stands for "Least Common Multiple." 
+It is the smallest positive integer that is divisible by two or more given integers without leaving a remainder. 
+In other words, it is the smallest common multiple of the numbers.
+  Example :
+12 X 1 = 12     8 X 1 = 8
+12 X 2 = 24     8 X 2 = 16
+12 X 3 = 36     8 X 3 = 24
+12 X 4 = 48     8 X 4 = 32
+12 X 5 = 60     8 X 5 = 40
+12 X 6 = 72     8 X 6 = 48
+
+  Therefore 24 is the least common multiple
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+        int num1 = 12;
+        int num2 = 8;
+        System.out.println("gcd is " +gcd(num1,num2));
+        System.out.println("lcm is " +lcm(num1,num2));
+    }
+    static int gcd(int num1, int num2)
+    {
+        int g = 0;
+        for (int i = 1; i <=num1 ; i++)
+        {
+            if (num1%i==0 && num2%i==0)
+            {
+                g = i;
+            }
+        }
+        return g;
+    }
+    static int lcm(int num1, int num2)
+    {
+        int l = (num1*num2)/gcd(num1, num2);
+        return l;
+    }
+}
+
+Output : 
+
+gcd is 4
+lcm is 24
