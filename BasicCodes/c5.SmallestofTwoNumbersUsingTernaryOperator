@@ -1,0 +1,16 @@
+/* Write a program to print smallest of two numbers using Ternary Opeartor */
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+       int num1 = 123, num2 = 45;
+        System.out.println(ternaryOperator(num1,num2));
+    }
+    static int ternaryOperator(int num1,int num2)
+    {
+        int smallest = num1<num2?num1:num2;
+        return smallest;
+    }
+}
+Output :
+45
