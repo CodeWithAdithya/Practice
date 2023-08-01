@@ -1,0 +1,19 @@
+/* Write a program to print 5 Random Numbers */
+
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            System.out.println(Math.random());
+        }
+    }
+}
+
+Output :
+0.016135767648252863
+0.8999374864615539
+0.17129209459024008
+0.011677713864098882
+0.273807501661549
