@@ -1,0 +1,29 @@
+/* Write a program to find the square root of a number without using math.sqrt method */
+
+Square root of a number:
+▪ If the square of a number is x, the square root of that number will be the number multiplied 
+by itself. For example, the square root of 625 is 25. If we multiply 25 two times, we get the 
+square of the number. Mathematically, the square root of a number is given as:
+▪ x=√x
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class JavaConqueror {
+    public static void main(String[] args) {
+        int num = 196;
+        System.out.println(squareroot(num));
+    }
+    static double squareroot(int num)
+    {
+        double temp = num;
+        double sr = num/2;
+        do {
+            temp = sr;
+            sr = (temp+(num/temp))/2;
+        } while ((temp-sr)!=0);
+        return  sr;
+    }
+}
+
+Output :
+14.0
