@@ -1,0 +1,32 @@
+/* write a program to find the nth prime number in java*/
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int num = 75;
+        prime(num);
+    }
+    static void prime(int num)
+    {
+        int count = 0, infinity =  1, i;
+        while (count<num)
+        {
+            infinity=infinity+1;
+            for ( i = 2; i <=infinity ; i++)
+            {
+             if (infinity%i==0)
+             {
+                 break;
+             }
+            }
+            if (infinity==i)
+            {
+                count++;
+            }
+        }
+        System.out.println(infinity +" is the "+num+"th prime number");
+    }
+}
+Output : 
+379 is the 75th prime number
