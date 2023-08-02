@@ -1,0 +1,31 @@
+/*Write a program to print Automorphic number*/
+
+Note:
+▪ A number is called as automorphic number if and only if the square of the given number 
+ends with the same number itself.
+▪ Example – 25*25-> 625 (Ending digits are 25 only)
+ 76*76-> 5776(Ending digits are 76 only)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+        int num = 25;
+        automorphicnumber(num);
+    }
+    static void automorphicnumber(int num)
+    {
+        int sqre = num*num;
+        int lastTwo = sqre%100;
+        if (lastTwo==num)
+        {
+            System.out.println(num+" is a Automorphic Number");
+        }
+        else
+        {
+            System.out.println(num+" is Not a Automorphic Number");
+        }
+    }
+}
+Output:
+25 is a Automorphic Number
