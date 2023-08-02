@@ -1,0 +1,47 @@
+/* Write a program to print Peterson number or Strong number? */
+
+Note:
+▪ Peterson number and Strong number are same.
+▪ A number is said to be Peterson if the sum of factorials of each digit in a number is equal to number itself.
+▪ Example: 145 - !1 + !4 + !5
+                 = 1 + 24+120
+                 = 145
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+        int num = 40585;
+        strongNumber(num);
+    }
+    static void  strongNumber(int num)
+    {
+     int sum=0,temp=num;
+     while (num>0)
+     {
+         int last = num%10;
+         sum = sum + factorial(last);
+         num=num/10;
+     }
+     if (sum==temp)
+     {
+         System.out.println(temp+" is a strong number");
+     }
+     else
+     {
+         System.out.println(temp+" is not a strong number");
+     }
+    }
+    static int factorial(int factnum)
+    {
+        int fact = 1;
+        for (int i = 1; i <=factnum ; i++)
+        {
+            fact=fact*i;
+        }
+        return fact;
+    }
+}
+Output : 
+40585 is a strong number
