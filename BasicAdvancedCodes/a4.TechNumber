@@ -1,0 +1,48 @@
+/* Write a program to print Tech Number */
+
+Note:
+A number is called as a tech number, if
+i. The given number has even number of digits and number can be divided exactly 
+into two parts from the middle.
+ii. After dividing the number sum up the numbers and find the square of the sum;
+iii. If we get the number itself as the square, the given number is tech number, else not 
+a tech number.
+Example: 2025
+ 4 digit number that is even number.
+ Dividing the number into equal half’s that is 20 and 25.
+ Adding both the numbers = 20+25 = 45.
+ Square of the number = 45X45= 2025.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 9801;
+        if (isTechNumber(number))
+        {
+            System.out.println(number + " is a tech number.");
+        }
+        else
+        {
+            System.out.println(number + " is not a tech number.");
+        }
+    }
+        public static boolean isTechNumber ( int number)
+        {
+            String numStr = String.valueOf(number);
+            int numDigits = numStr.length();
+            if (numDigits % 2 != 0)
+            {
+                return false;
+            }
+            int halfLength = numDigits / 2;
+            int firstHalf = Integer.parseInt(numStr.substring(0, halfLength));
+            int secondHalf = Integer.parseInt(numStr.substring(halfLength));
+            int sum = firstHalf + secondHalf;
+            return sum * sum == number;
+    }
+}
+Output : 
+9801 is a tech number.
