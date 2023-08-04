@@ -1,0 +1,42 @@
+/* Write a program to print Neon Number */
+
+A positive integer whose sum of digits of its square is equal to the number itself is called 
+a neon number.
+Example : -> 9
+          -> 9*9 = 81
+          -> 8+1=9
+          ->  9=9
+           Hence Neon Number
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+import java.util.ArrayList;
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+        int number = 9;
+        if (neonNumber(number))
+        {
+            System.out.println(number+" is a neon number");
+        }
+        else
+        {
+            System.out.println(number+" is not a neon number");
+        }
+    }
+    static boolean neonNumber(int number)
+    {
+        int sqreNumber = number*number;
+        int sum=0;
+        while (sqreNumber>0)
+        {
+            int lastDigit = sqreNumber%10;
+            sum=sum+lastDigit;
+            sqreNumber=sqreNumber/10;
+        }
+        return number==sum;
+    }
+}
+Output:
+9 is a neon number
