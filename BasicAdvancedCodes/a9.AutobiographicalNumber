@@ -1,0 +1,68 @@
+/* Write a program to check if the given number is Autobiographical Number or not */
+
+Autobiographical Number:
+A digit count numerically précises the frequency of digits 0 through 9 in the order in which 
+they occur in a number. In other words, a number that is a pompous and self-centered figure 
+whose only purpose in life is to describe itself.
+We can define an autobiographical number formally as:
+An autobiographical number is a number (N) such that the first digit of N counts how many 
+zeroes are presented in N, the second digit counts how many ones are presented in N, the third 
+digit counts how many twos are presented in N, and so on. Sometimes, it is also known as 
+a curious number. It is the sequence OEIS A046043.
+It is just like Self-describing primes that uses a different method OEIS A108810 to describe 
+the Self-describing primes. The only difference between the two is that in autobiographical 
+numbers digits are described in increasing order while self-describing primes digits can be 
+described in any order.
+There is only a number 10213223 that describes itself. We observe that the frequency of 0 is 
+1, the frequency of 1 is 2, the frequency of 2 is 3, and the frequency of 3 is 2. 
+Therefore, 10213223 is only a number that describes itself. The smallest autobiographical 
+number is 1210.
+Autobiographical Number Example
+Suppose, we want to check the number 21200 is an autobiographical number or not.
+First, find the sum of its digits (2+1+2+0+0) i.e. 5, and counts the number of digits of the given 
+number i.e. 5. We observe that both are equal. Hence, the number 21200 is 
+an autobiographical number.
+Note: The method discussed above works only if the sum of digits is less than 10.
+Let's take another number 1210. It has 1 zero, 2 ones, 1 two, and 0 threes. Hence, the number 
+21200 is an autobiographical number.
+The above method can be used for all numbers.
+Some autobiographical numbers are: 1210, 2020, 21200, 3211000, 42101000, 521001000, 
+6210001000.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class JavaConqueror {
+
+    public static boolean isAutobiographyNumber(int num) {
+        String numStr = Integer.toString(num);
+        int digitCount = numStr.length();
+        int[] counts = new int[digitCount];
+
+        for (char digit : numStr.toCharArray()) {
+            int digitValue = Character.getNumericValue(digit);
+            counts[digitValue]++;
+        }
+
+        for (int i = 0; i < digitCount; i++) {
+            if (counts[i] != Character.getNumericValue(numStr.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public static void main(String[] args) {
+
+        int number = 2020;
+
+        if (isAutobiographyNumber(number)) {
+            System.out.println(number + " is an autobiographical number.");
+        } else {
+            System.out.println(number + " is not an autobiographical number.");
+        }
+    }
+}
+Output:
+2020 is an autobiographical number.
