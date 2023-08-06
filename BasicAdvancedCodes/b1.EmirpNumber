@@ -1,0 +1,65 @@
+/* Write a program to print emirp number */
+
+Emirp Number:
+▪ A number is called an emirp number if we get another prime number on reversing the 
+number itself. In other words, an emirp number is a number that is prime forwards or 
+backward. It is also known as twisted prime numbers.
+Note: Palindrome primes are excluded.
+Emirp Number Example:
+▪ Suppose, we want to check the number 79 is emirp or not.
+▪ We know that 79 is a prime number means that divisible by 1 and self only. On reversing 
+the number, we get 97 which is another prime number. Therefore, 79 and 97 both are prime 
+numbers. Hence, 79 is a prime number. Similarly, we can check other numbers also.
+▪ Some other emirp numbers are 13, 199, 107, 113, 1399, 1583, 1201, 3049, etc
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 1399;
+        System.out.println(emirpNumber(number));
+    }
+    static boolean emirpNumber(int number)
+    {
+     if (!isPrime(number))
+     {
+         return false;
+     }
+     if (!isPrime(reverseNumber(number)))
+     {
+         return false;
+     }
+     return true;
+    }
+    static boolean isPrime(int number)
+    {
+        int count=0;
+        for (int i = 2; i <number ; i++)
+        {
+         if (number%i==0)
+         {
+             count++;
+         }
+        }
+        if (count==0)
+        {
+            return true;
+        }
+        return false;
+    }
+    static int reverseNumber(int number)
+    {
+        while (number>0)
+        {
+            int rev= 0;
+            int rem = number%10;
+            number = number/10;
+            rev = rev*10 + rem;
+        }
+        return number;
+    }
+}
+Output:
+true
