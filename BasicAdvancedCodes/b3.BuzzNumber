@@ -1,0 +1,36 @@
+/* Write a program to check the number is buzz number or not */
+
+BUZZ NUMBER:
+▪ Buzz number is another special number in Java that ends with digit 7 or divisible by 7.
+▪ In simple words, a number is said to be Buzz if it ends with 7 or is divisible by 7.
+▪ Let's take some examples of Buzz numbers.
+42 is a Buzz number because it is divisible by 7.
+107 is a Buzz number because it ends with 7.
+147 is a Buzz number because it ends with 7 and also divisible by 7.
+134 is not a Buzz number because it is neither end with 7 nor divisible by 7.
+---------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.ArrayList;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 49;
+        System.out.println(buzzNumber(number));
+    }
+    static boolean buzzNumber(int number)
+    {
+        if (number<=0)
+        {
+            return false;
+        }
+        else if (number%10==7 || number%7==0)
+        {
+            return true;
+        }
+        return false;
+    }
+}
+Output:
+true
