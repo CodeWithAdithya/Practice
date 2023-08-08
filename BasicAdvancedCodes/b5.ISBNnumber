@@ -1,0 +1,57 @@
+/* Write a program to check if the number is ISBN Number or Not*/
+
+ISBN is another special number in Java. ISBN stands for the International Standard 
+Book Number that is carried by almost each every book. The ISBN is a ten-digit unique 
+number. With the help of the ISBN, we can easily find any book. The ISBN number is a 
+legal number when 1*Digit1 + 2*Digit2 + 3*Digit3 + 4*Digit4 + 5*Digit5 + 6*Digit6 + 
+7*Digit7 + 8*Digit8 + 9*Digit9 + 10*Digit10 is divisible by 11. The digits are taken from 
+right to left. So, if the ten-digit number is 7426985414, Digit1 and Digit10 will be 4 and 7, 
+respectively.
+▪ Let's take two numbers and check whether the numbers are legal or not.
+1259060977
+Sum = (1*10) + (2*9) + (5*8) + (9*7) + (0*6) + (6*5) + (0*4) + (9*3) + (7*2) + (7*1)
+Sum = 10 + 18 + 40 + 63 + 0 + 30 + 0 + 27 + 14 + 7
+ Sum = 209
+Now, we divide the sum with 11 and check whether the remainder is 0 or not.
+ rem = 209 % 11
+rem = 0
+ Number 1259060977 is a legal ISBN because the remainder is equal to 0.
+
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ import java.util.ArrayList;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 1259060977;
+        System.out.println(ISBN(number));
+    }
+    static boolean ISBN(int number)
+    {
+      String strNum = Integer.toString(number);
+      int digitCount = strNum.length();
+      if (digitCount!=10)
+      {
+          return false;
+      }
+      int[] digitArray = new int[10];
+        for (int i = 0; i < 10 ; i++)
+        {
+         if (number>0)
+         {
+             digitArray[i] = number%10;
+             number=number/10;
+         }
+        }
+        int result=0;
+        for (int i = 0; i <10; i++)
+        {
+            result =  result + digitArray[i]*(i+1);
+        }
+        return result%11==0;
+    }
+}
+Output:
+true
