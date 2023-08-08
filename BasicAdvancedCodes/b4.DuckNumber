@@ -1,0 +1,58 @@
+/* Write a program to check the number is a Duck Number or not */
+
+DUCK NUMBER:
+▪ Duck number is another special positive non-zero number that contains zero in it. The 
+digit zero should not be presented at the starting of the number. Zero can be present at 
+any of the positions except the beginning of the number.
+▪ Let's understand some examples of Duck numbers.
+1. 3210 is a Duck number because it contains zero at the end of the number but not present 
+at the beginning of it.
+2. 08237 is not a Duck number because it contains zero at the beginning of it.
+3. 7033 is a Duck number because it contains zero at the second position, not at the 
+beginning.
+4. 030405 is not a Duck number because it also contains zero in starting of the number.
+5. 00153 is also not a Duck number because it contains leading zeros.
+------------------------------------------------------------------------------------------------------------------------
+
+import java.util.ArrayList;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 625045;
+        System.out.println(duckNumber(number));
+    }
+    static boolean duckNumber(int number)
+    {
+        String strNum = Integer.toString(number);
+        int digitCount = strNum.length();
+        int[] result = new int[digitCount];
+        for (int i = digitCount-1; i >= 0 ; i--)
+        {
+         if (number>0)
+         {
+             result[i] = number % 10;
+             number = number / 10;
+         }
+        }
+        if (result[0]==0)
+        {
+            return false;
+        }
+        else
+        {
+            for (int i = digitCount-1; i >=1 ; i--)
+            {
+             if (result[i]==0)
+             {
+                 return true;
+             }
+            }
+        }
+        return false;
+    }
+}
+Output:
+true
+
