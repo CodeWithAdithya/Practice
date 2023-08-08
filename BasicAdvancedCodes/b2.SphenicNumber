@@ -1,0 +1,64 @@
+/* Write a program to check the number is sphenic number or not */
+
+Sphenic Number:
+▪ A positive integer n is called a sphenic number if the product of factors of the given 
+number (n) is exactly three and all factors are prime. In other words, if n is a sphenic 
+integer, then n=p x q x r (p, q, and are three distinct prime numbers and their product are 
+n).
+▪ Let's take the number 30 and check if it is sphenic or not.
+The smallest three primes factors that form the same numbers are 2, 3, and 5. On multiplying 
+them, we get the same number 30. Hence, the given number is a sphenic number.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.ArrayList;
+
+public class JavaConqueror
+{
+   public static void main(String[] args)
+   {
+      int number = 30;
+       System.out.println(sphenicNumber(number));
+   }
+   static boolean sphenicNumber(int number)
+   {
+      ArrayList<Integer> list = new ArrayList<>();
+      for (int i = 1; i <=number ; i++)
+      {
+       if (number%i==0 && isprime(i) )
+       {
+          list.add(i);
+       }
+      }
+      if (list.size()!=3)
+      {
+          return false;
+      }
+       int product = 1;
+       for (int i = 0; i <list.size() ; i++)
+       {
+          product = product* list.get(i);
+       }
+       if (product==number)
+       {
+           return true;
+       }
+       return false;
+   }
+   static boolean isprime(int number)
+   {
+       if (number<=1)
+       {
+           return false;
+       }
+       for (int i = 2; i <=Math.sqrt(number) ; i++)
+       {
+        if (number%i==0)
+        {
+            return false;
+        }
+       }
+       return true;
+   }
+}
+Output :
+true
