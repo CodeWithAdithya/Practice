@@ -1,0 +1,82 @@
+/* Write a program to check a number is Bouncy Number or Not */
+
+Bouncy Number in Java:
+In this section, we will learn what is a bouncy number and also create Java programs to 
+check if the given number is bouncy. The bouncy number program frequently asked in Java 
+coding tests and academics. Before understanding the bouncy number, first, we will 
+understand what is increasing and decreasing numbers.
+
+Increasing Numbers:
+In an integer traversing from left to right if the current digit is greater than or equal to the 
+previous digit, the number is known as increasing numbers. In other words, we can say that 
+if no digit is exceeded by the digit to its left is called increasing numbers. For example, 1233, 
+13689, 112334566, etc...
+
+Decreasing Numbers:
+In an integer traversing from left to right if the current digit is less than the previous digit, the 
+number is known as decreasing numbers. In other words, we can say that if no digit is 
+exceeded by the digit to its right is called decreasing numbers. For example, 321, 88531, 
+8755321, etc
+
+BOUNCY NUMBER:
+A positive integer that is neither in increasing nor decreasing number is called a bouncy 
+number. It means they bounce between increasing and decreasing. In other words, we can say 
+that if the digits of the number are unsorted.
+For example, 123742, 101, 43682, etc. We observe that in the given number's digits are neither 
+increasing nor decreasing if we traverse from left to right, hence they are called bouncy 
+numbers
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 8766592;
+        System.out.println(BouncyNumber(number));
+    }
+    static boolean BouncyNumber(int number)
+    {
+     String strNum = Integer.toString(number);
+     int digitCount = strNum.length();
+     int[] array = new int[digitCount];
+        for (int i = digitCount-1; i >=0 ; i--)
+        {
+         array[i] = number%10;
+         number=number/10;
+        }
+        if (!isIncreasing(array) && !isDecreasing(array))
+        {
+            return true;
+        }
+        return false;
+    }
+    static boolean isIncreasing(int[] array)
+    {
+        for (int i = 1; i < array.length; i++)
+        {
+         if (array[i-1]>array[i])
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+    static boolean isDecreasing(int[] array)
+    {
+        for (int i = 1; i < array.length; i++)
+        {
+            if (array[i-1]<array[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+Output:
+true
