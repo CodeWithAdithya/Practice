@@ -1,0 +1,51 @@
+/* Write a program to check the number is mystery number or not*/
+
+A number N is said to be a mystery number if the number can be expressed by the sum of two 
+numbers. Note that these two numbers must be reverse of each other.
+Example:
+1. 154  ->  59+95
+            68+86
+            77+77
+
+2. 88   ->  17+71
+            26+62
+            35+53
+            44+44
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 110;
+        System.out.println(isMysteryNumber(number));
+    }
+    static int reverseNumber(int number)
+    {
+        int reverse=0;
+        while (number>0)
+        {
+            int lastDigit = number%10;
+            number=number/10;
+            reverse = reverse*10 + lastDigit;
+        }
+        return reverse;
+    }
+    static boolean isMysteryNumber(int number)
+    {
+        for (int i = 1; i <number/2 ; i++)
+        {
+         int sum = i + reverseNumber(i);
+         if (sum==number)
+         {
+             return true;
+         }
+        }
+        return false;
+    }
+}
+Output:
+true
