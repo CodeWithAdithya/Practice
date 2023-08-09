@@ -1,0 +1,72 @@
+/* Write a program to check if the number is Smith Number or Not */
+
+Smith Number:
+A Smith number is a composite number whose sum of digits equals to the sum of digits of its 
+prime factors, excluding 1. It is also known as a joke number.
+Sum of digits of n = Sum of digits of prime factors of n (counted with multiplicity)
+Suppose, we want to check the number 85 is smith or not.
+Sum of digits = 8 + 5 = 13
+Prime factors of 85 is: 5,17
+Sum of digits of its prime factors = 5 + 1+ 7 = 13
+Compare the sum of digits with the sum of digits of its prime factors i.e. 13=13. Both are equal. 
+Hence, the given number (85) is a smith number
+
+--------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+
+public class JavaConqueror {
+    public static void main(String[] args) {
+        int number = 85;
+        System.out.println(smithNumber(number));
+    }
+    static boolean smithNumber(int number)
+    {
+        int originalDigitSum = digitSumMethod(number);
+        int originalFactorSum = factors(number);
+        if (originalDigitSum==originalFactorSum)
+        {
+            return true;
+        }
+        return false;
+    }
+    static int  digitSumMethod(int number)
+    {
+        int digitSum = 0;
+        while (number>0)
+        {
+            int lastDigit = number%10;
+            digitSum = digitSum + lastDigit;
+            number=number/10;
+        }
+        return digitSum;
+    }
+    static int factors(int number)
+    {
+        int factorSum=0;
+        for (int i = 2; i <number ; i++)
+        {
+         if (number%i==0 && isprime(i))
+         {
+            if (i>0)
+            {
+                factorSum = factorSum + digitSumMethod(i);
+            }
+         }
+        }
+        return factorSum;
+    }
+    static boolean isprime(int number)
+    {
+        for (int i = 2; i <number; i++)
+        {
+         if (number%i==0)
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+}
+Output:
+true
