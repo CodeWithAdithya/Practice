@@ -1,0 +1,55 @@
+/* Write a program to check the number is Xylem number or Phleom Number*/
+
+A number N will be a xylem number if the sum of its extreme (first and last) digits is equal 
+to the sum of mean (all digits except first and last) digits. If the sum of extreme digits is not 
+equal to the sum of mean digits, the number is called phloem number.
+
+Example : 
+
+12348 -> 1+8 ( sum of first and last digits ) = 9
+         2+3+4 ( sum of digits except first and last ) = 9
+      -> 9=9 ( Hence the number is xylem number )
+
+17156 -> 1+7( sum of first and last digits ) = 8
+         7+1+5( sum of digits except first and last ) = 13
+         8!=13 ( Hence the number is phleom number )
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int number = 12225;
+        if (xylemANDphloemNumber(number))
+        {
+            System.out.println(number+" is a XYLEM Number");
+        }
+        else
+        {
+            System.out.println(number+" is a PHLOEM Number");
+        }
+    }
+    static boolean xylemANDphloemNumber(int number)
+    {
+        String strNum = Integer.toString(number);
+        int digitCount = strNum.length();
+        int[] array = new int[digitCount];
+        for (int i = digitCount-1; i >=0 ; i--)
+        {
+            array[i]=number%10;
+            number=number/10;
+        }
+        int extreamEndSum = array[0]+array[digitCount-1];
+        int middleNumSum=0;
+        for (int i = 1; i <=digitCount-2 ; i++)
+        {
+            middleNumSum  = middleNumSum + array[i];
+        }
+        return extreamEndSum==middleNumSum;
+    }
+}
+Output:
+12225 is a XYLEM Number
