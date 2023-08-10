@@ -7,9 +7,9 @@ public class JavaConqueror
     {
         int[] nums = {1,5,3,7,8,23,67,432,4};
        ;
-        System.out.println( sumOfElements(nums));
+        System.out.println( averageOfAnArray(nums));
     }
-    static double sumOfElements(int[] nums)
+    static double averageOfAnArray(int[] nums)
     {
         if (nums.length==0 || nums==null)
         {
@@ -22,6 +22,11 @@ public class JavaConqueror
         }
         return sum/nums.length;
     }
+}
+
+
+
+
 }
 
 Output:
