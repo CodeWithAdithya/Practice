@@ -1,0 +1,31 @@
+/* Write a program to print Maximum Element in an Array */
+
+import java.util.Arrays;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int[] nums = {1,5,3,7,8,23,67,432,4};
+        System.out.println("Maximum Value is " +maximumElement(nums));
+    }
+    static int maximumElement(int[] nums)
+    {
+        if (nums.length==0 || nums==null)
+        {
+            return -1;
+        }
+        int maxNum = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++)
+        {
+         if (nums[i]>maxNum)
+         {
+             maxNum=nums[i];
+         }
+        }
+        return maxNum;
+    }
+}
+
+Output:
+Maximum Value is 432
