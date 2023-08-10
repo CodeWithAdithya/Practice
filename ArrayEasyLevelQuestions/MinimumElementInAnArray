@@ -7,9 +7,9 @@ public class JavaConqueror
     public static void main(String[] args)
     {
         int[] nums = {1,5,3,7,8,23,67,432,4};
-        System.out.println("Minimum Value is " +maximumElement(nums));
+        System.out.println("Minimum Value is " + minimumElement(nums));
     }
-    static int maximumElement(int[] nums)
+    static int minimumElement(int[] nums)
     {
         if (nums.length==0 || nums==null)
         {
