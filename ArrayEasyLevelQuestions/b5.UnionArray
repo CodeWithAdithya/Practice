@@ -1,0 +1,42 @@
+/* write a program to find union of two arrays */
+
+
+
+import java.util.*;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int[] num1 = {1,2,3};
+        int[] num2 = {2,3,4,9};
+        System.out.println(Arrays.toString(union(num1,num2)));
+     }
+     static int[] union(int[] num1,int[] num2)
+     {
+         if (num1==null || num2==null)
+         {
+             return new int[0];
+         }
+         Set<Integer> set1 = new HashSet<>();
+         for (int num: num1)
+         {
+          set1.add(num);
+         }
+         for (int num: num2)
+         {
+          set1.add(num);
+         }
+          int[] result = new int[set1.size()];
+         int index=0;
+             for (int num: set1)
+             {
+                 result[index]=num;
+                 index++;
+             }
+             return result;
+     }
+}
+
+Output: 
+[1, 2, 3, 4, 9]
