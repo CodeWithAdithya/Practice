@@ -1,0 +1,39 @@
+/* write a program to rotate an array by a given number of positions */
+
+
+import java.util.*;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+     int[] nums = {1,2,3,4,5,7,9,12,45,56,78,96};
+        System.out.println(Arrays.toString(rotation(nums,3)));
+    }
+    static int[] rotation(int[] nums , int rotate)
+    {
+        if (nums==null || nums.length==0)
+        {
+            return new int[0];
+        }
+        int length = nums.length;
+        rotate=rotate%length;
+        reverse(nums,0,length-1);
+        reverse(nums,0,length-1-rotate);
+        reverse(nums,length-rotate,length-1);
+       return nums;
+    }
+    static void reverse(int[] nums,int start,int end)
+    {
+        while (start<end)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+Output:
+[4, 5, 7, 9, 12, 45, 56, 78, 96, 1, 2, 3]
