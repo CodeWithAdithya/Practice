@@ -1,0 +1,58 @@
+/* write a program to find kth smallest and kth largest element in an array */
+
+Note : So, kth smallest and kth largest element in the sorted order not the kth distinct element. (Duplicatws are considered) 
+
+Idea is to use Priority Queue
+
+---------------------------------------------------------------------------------------------------------------------------------------------\
+
+
+import java.util.*;
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int[] nums = {3,2,3,1,2,4,5,5,6};
+        int target = 4;
+        System.out.println(target+"th "+"Smallest Element is : " +minimumElement(nums,target));
+        System.out.println(target+"th "+"Largest Element is : "+maximumElement(nums,target));
+    }
+    static int minimumElement (int[] nums,int target)
+    {
+        if (nums==null || nums.length==0)
+        {
+          throw new IllegalArgumentException("InvalidInput");
+        }
+        PriorityQueue<Integer> min = new PriorityQueue<>();
+        for (int num: nums)
+        {
+            min.offer(num);
+        }
+        for (int i = 0; i < target-1; i++)
+        {
+         min.poll();
+        }
+        return min.poll();
+     }
+     static int maximumElement(int[] nums,int target)
+     {
+         if (nums==null || nums.length==0)
+         {
+             throw new IllegalArgumentException("InvalidInput");
+         }
+         PriorityQueue<Integer> max = new PriorityQueue<>((a,b)->b-a);
+         for (int num:nums)
+         {
+          max.offer(num);
+         }
+         for (int i = 0; i < target-1; i++)
+         {
+          max.poll();
+         }
+         return max.poll();
+     }
+}
+Output:
+4th Smallest Element is : 3
+4th Largest Element is : 4
