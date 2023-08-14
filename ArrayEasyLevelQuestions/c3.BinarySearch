@@ -1,0 +1,41 @@
+/* write a program to Implement binary search */
+
+Note : Binary Search only works for sorted arrays.
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+     int[] nums = {1,2,3,4,56,123,345,633,985,1004,1113};
+     int target = 56;
+        System.out.println("Search Element is in Index no : "+ binarySearch(nums,target));
+    }
+    static int binarySearch(int[] nums, int target)
+    {
+        if (nums==null || nums.length==0)
+        {
+            return -1;
+        }
+       int start = 0;
+        int end = nums.length-1;
+        while (start<=end)
+        {
+            int mid = start + (end-start)/2;
+            if (target==nums[mid])
+            {
+                return mid;
+            }
+            else if (target<nums[mid])
+            {
+                end=mid-1;
+            }
+            else
+            {
+                start=mid+1;
+            }
+        }
+        return -1;
+    }
+}
+Output:
+Search Element is in Index no : 4
