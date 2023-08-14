@@ -1,0 +1,64 @@
+/* write a program to find the majority element in an array */
+
+Majority element is the element that appears n/2 times, where the array length is n.
+  
+There are basically three methods to find the majority element in an array
+1.sort the array, middle element is majority element.
+2.use Map with the help of key and value pair
+3.use Boyer-Moore Voting Algorithm.
+
+Here we use Boyer-Moore Voting Algorithm, because this is the best way interms of space and time complexity
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+  public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+     int[] nums = {4,6,5,6,6,3,6,6,2,6,7,6};
+        System.out.println("Majority Element is "+majorityElement(nums));
+    }
+    static int majorityElement(int[] nums)
+    {
+        if (nums==null || nums.length==0)
+        {
+            return -1;
+        }
+        int candidate = -1, count =0;
+        for (int num: nums)
+        {
+            if (count==0)
+            {
+                candidate=num;
+                count=1;
+            }
+            else if (candidate==num)
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+            }
+        }
+        if (verification(nums,candidate))
+        {
+            return candidate;
+        }
+        return -1;
+    }
+    static boolean verification(int[] nums, int candidate)
+    {
+        int count=0;
+        for (int num: nums)
+        {
+         if (num==candidate)
+         {
+             count++;
+         }
+        }
+        return count>nums.length/2;
+    }
+}
+Output:
+Majority Element is 6
