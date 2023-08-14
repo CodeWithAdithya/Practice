@@ -1,0 +1,28 @@
+/* write a program to Implement linear search */
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+     int[] nums = {1,2,3,4,56,7,5,33,5,4,3};
+     int target = 56;
+        System.out.println("Search Element is in Index no : "+ linearSearch(nums,target));
+    }
+    static int linearSearch(int[] nums, int target)
+    {
+        if (nums==null || nums.length==0)
+        {
+            return -1;
+        }
+        for (int i = 0; i < nums.length; i++)
+        {
+            if (nums[i]==target)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+Output:
+Search Element is in Index no : 4
