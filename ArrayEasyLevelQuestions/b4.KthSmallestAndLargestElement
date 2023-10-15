@@ -1,6 +1,6 @@
 /* write a program to find kth smallest and kth largest element in an array */
 
-Note : So, kth smallest and kth largest element in the sorted order not the kth distinct element. (Duplicatws are considered) 
+Note : So, kth smallest and kth largest element in the sorted order not the kth distinct element. (Duplicates are considered) 
 
 Idea is to use Priority Queue
 
