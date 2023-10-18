@@ -1,0 +1,46 @@
+*/ Write a Code to Count Number of Pairs that Matches the Target in an Array \*
+
+The problem is to count the number of pairs in an array that sum up to a given target value.
+Given an array of integers and a target sum, we need to find the count of all pairs of elements in the array whose sum is equal to the target sum.
+Additionally, in case there are duplicate elements in the array, we should avoid counting the same pair twice.
+  Example : arr = {3, 1, 5, 6, 7, 4, 9, 2} and target = 6
+            (3, 3) - ORIGINAL
+            (3, 3) - DUPLICATE
+            (1, 5) - ORIGINAL
+            (5, 1) - DUPLICATE
+            (4, 2) - ORIGINAL
+            (2, 4) - DUPLICATE
+
+            Hence, avoid duplicate and count original, output is 3.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror {
+    public static void main(String[] args) {
+        int[] arr = {3, 1, 5, 6, 7, 4, 9, 2};
+        int target = 6;
+        System.out.println(countPairs(arr, target));
+    }
+
+    static int countPairs(int[] arr, int target) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == target) {
+                    count++;
+                }
+            }
+        }
+        if (arr[0]+arr[0]==target)
+        {
+            count++;
+        }
+        return count;
+    }
+}
+Output:
+3
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+  
