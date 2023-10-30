@@ -25,7 +25,12 @@ public class CustomQueue
     {
         if (isFull())
         {
-            return false;
+            int[] temp = new int[data.length*2];
+            for (int i = 0; i < data.length; i++)
+            {
+                temp[i]=data[i];
+            }
+            data=temp;
         }
         data[end++]=item;
         return true;
@@ -68,6 +73,8 @@ public class CustomQueue
         queue.add(78);
         queue.add(34);
         queue.add(45);
+        queue.add(55);
+        queue.add(559);
         queue.display();
         System.out.println(queue.remove());
         queue.display();
@@ -75,6 +82,6 @@ public class CustomQueue
 }
 Output:
 
-5 9 78 34 45 END
+5 9 78 34 45 55 559 END
 5
-9 78 34 45 END
+9 78 34 45 55 559 END
