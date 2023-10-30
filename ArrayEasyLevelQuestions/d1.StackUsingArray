@@ -1,0 +1,87 @@
+/* Implement a stack using an array */
+
+public class CustomStack
+{
+    protected int[] data;
+    private static final int DEFAULT_SIZE = 10;
+    int ptr = -1;
+    public CustomStack()
+    {
+        this(DEFAULT_SIZE);
+    }
+    public CustomStack(int size)
+    {
+        this.data=new int[size];
+    }
+    public boolean push(int item)
+    {
+        if (isFull())
+        {
+            int[] temp = new int[data.length*2];
+            for (int i = 0; i < data.length; i++)
+            {
+             temp[i]=data[i];
+            }
+            data=temp;
+        }
+        ptr++;
+        data[ptr]=item;
+        return true;
+    }
+    public int  pop() throws Exception
+    {
+        if (isEmpty())
+        {
+            throw new Exception("cannot pop from an Empty Stack");
+        }
+        int removed = data[ptr];
+        ptr--;
+        return removed;
+    }
+    public int peek() throws Exception
+    {
+        if (isEmpty())
+        {
+            throw new Exception("cannot peek from an Empty Stack");
+        }
+        int peekValue = data[ptr];
+        return peekValue;
+    }
+
+    private boolean isFull()
+    {
+        return ptr==data.length-1;  // ptr is at the last index
+    }
+    private boolean isEmpty()
+    {
+        return ptr==-1;
+    }
+
+    public static void main(String[] args) throws Exception
+    {
+        CustomStack stack = new CustomStack(5);
+        stack.push(18);
+        stack.push(9);
+        stack.push(7);
+        stack.push(89);
+        stack.push(99);
+        stack.push(198);
+        stack.push(890);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+    }
+}
+
+Output:
+890
+198
+99
+89
+7
+9
+18
