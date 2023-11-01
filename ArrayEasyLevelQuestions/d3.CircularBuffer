@@ -1,0 +1,101 @@
+/* 27.	Implement a circular buffer using an array */
+
+Note: Circular Buffer is nothing but it is Circular Queue */
+
+public class CircularBuffer
+{
+    protected int[] data;
+    private static final int DEFAULT_SIZE = 10;
+    protected int end = 0;
+    protected int front = 0;
+    private int size = 0;
+    public CircularBuffer()
+    {
+        this(DEFAULT_SIZE);
+    }
+    public CircularBuffer(int size)
+    {
+        this.data=new int[size];
+    }
+    private boolean isFull()
+    {
+        return size==data.length;  // ptr is at the last index
+    }
+    private boolean isEmpty()
+    {
+        return size==0;
+    }
+    public boolean add(int item)
+    {
+        if (isFull())
+        {
+            int[] temp = new int[data.length*2];
+            for (int i = 0; i < data.length; i++)
+            {
+                temp[i]=data[(front+i)% data.length];
+            }
+            front=0;
+            end= data.length;
+            data=temp;
+        }
+        data[end++]=item;
+        end=end% data.length;
+        size++;
+        return true;
+    }
+    public int remove() throws Exception
+    {
+        if (isEmpty())
+        {
+            throw new Exception("Queue is Empty");
+        }
+        int removed = data[front++];
+        front=front% data.length;
+        size--;
+        return removed;
+    }
+    public int peek() throws Exception
+    {
+        if (isEmpty())
+        {
+            throw new Exception("Queue is Empty");
+        }
+        return data[front];
+    }
+    public void display() throws Exception {
+        if (isEmpty())
+        {
+            throw new Exception("Queue is Empty");
+        }
+       int i = front;
+       do
+       {
+           System.out.print(data[i]+" ");
+           i++;
+           i=i%data.length;
+
+       }while (i!=end);
+        System.out.println("END");
+    }
+
+    public static void main(String[] args) throws Exception {
+        CircularBuffer queue = new CircularBuffer(5);
+        queue.add(5);
+        queue.add(9);
+        queue.add(78);
+        queue.add(34);
+        queue.add(45);
+        queue.add(55);
+        queue.add(559);
+        queue.display();
+        System.out.println(queue.remove());
+        queue.add(678);
+        queue.display();
+    }
+}
+
+Output:
+
+5 9 78 34 45 55 559 END
+5
+9 78 34 45 55 559 678 END
