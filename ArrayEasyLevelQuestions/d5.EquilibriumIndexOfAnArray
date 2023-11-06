@@ -1,0 +1,75 @@
+*/ Find the equilibrium index of an array /*
+
+The equilibrium index of an array is an index such that the sum of elements at lower indices is equal to the sum of elements at higher indices.
+In other words, it is the index where the sum of all elements to the left is equal to the sum of all elements to the right.
+Mathematically, if you have an array A of length n, an equilibrium index, denoted as 'i', satisfies the following condition:
+
+A[0]+A[1]+…+A[i−1]=A[i+1]+A[i+2]+…+A[n−1]
+
+For example, consider the array A = {-7, 1, 5, 2, -4, 3, 0}. Here, the equilibrium index is 3, because A[0] + A[1] + A[2] (-7 + 1 + 5) = A[4] + A[5] + A[6] (−4 + 3 + 0).
+
+It's important to note that an array can have more than one equilibrium index or even none at all. To find all equilibrium indices,
+you would need to iterate through the array and check each index's left and right sums. If there are no equilibrium indices,
+it implies that there is no point where the sums of the elements on both sides are equal.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class EquilibriumIndex {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the length of an array");
+        int length = sc.nextInt();
+        System.out.println("Enter Each Value");
+        int[] arr = new int[length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println(findingEquiIndex(arr));
+    }
+
+    static int findingEquiIndex(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int leftSum = 0;
+            int rightSum = 0;
+            // Calculating the left sum
+            for (int j = 0; j < i; j++) {
+                leftSum += arr[j];
+            }
+            // Calculating the right sum
+            for (int j = i + 1; j < arr.length; j++) {
+                rightSum += arr[j];
+            }
+            // Checking if the current index is an equilibrium index
+            if (leftSum == rightSum) {
+                return i;
+            }
+        }
+        return -1; // If there is no equilibrium index
+    }
+}
+
+Output : 
+
+Enter the length of an array
+7
+Enter Each Value
+-7
+1
+5
+2
+-4
+3
+0
+3 -> index number
+
+Note : 
+1. The time complexity of the provided code is O(n^2), where n is the number of elements in the array.
+This is because for each index, it calculates the left and right sums separately, resulting in nested loops.
+The nested loops cause the time complexity to increase as the size of the array increases.
+2. The space complexity of the code is O(1) because it only uses a constant amount of extra space for storing the leftSum and rightSum variables,
+irrespective of the size of the input array. No additional data structures are used that depend on the size of the input.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
