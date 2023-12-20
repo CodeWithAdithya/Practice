@@ -23,7 +23,7 @@ public class JavaConqueror
     }
     static void leapyear(int year)
     {
-        if (year%400==0 && year%4==0 || year%100!=0)
+        if (year%400==0 || year%4==0 && year%100!=0)
         {
             System.out.println(year+" is a leap year");
         }
