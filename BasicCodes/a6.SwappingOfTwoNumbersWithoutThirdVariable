@@ -19,3 +19,26 @@ public class JavaConqueror
 Output:
 Before swapping num1=20 num2=45
 After swapping num1=45 num2=20
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int num1 = 20, num2 = 45;
+        swap(num1,num2);
+    }
+    static void swap(int num1, int num2)
+    {
+        System.out.println("Before swapping num1="+num1+" num2="+num2);
+        num1 = num1 ^ num2;
+        num2 = num1 ^ num2;
+        num1 = num1 ^ num2;
+        System.out.println("After swapping num1="+num1+" num2="+num2);
+    }
+}
+Output:
+Before swapping num1=20 num2=45
+After swapping num1=45 num2=20
