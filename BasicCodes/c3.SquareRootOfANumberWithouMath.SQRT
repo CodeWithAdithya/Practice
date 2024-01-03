@@ -27,3 +27,25 @@ public class JavaConqueror {
 
 Output :
 14.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror {
+    public static void main(String[] args) {
+        int num = 49;
+        System.out.println(squareroot(num));
+    }
+    static int sqrtNum(int num)
+    {
+        for (int i = 1; i <= num/2 ; i++)
+        {
+         if (i*i==num)
+         {
+             return i;
+         }
+        }
+        return -1;
+    }
+}
+Output:
+25
+5
