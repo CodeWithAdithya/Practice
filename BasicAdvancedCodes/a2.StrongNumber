@@ -45,3 +45,37 @@ public class JavaConqueror {
 }
 Output : 
 40585 is a strong number
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+      int num = 145;
+        System.out.println(StrongNum(num));
+    }
+    static boolean StrongNum(int num)
+    {
+      String strNum = Integer.toString(num);
+      int strLength = strNum.length();
+      char[] ch = strNum.toCharArray();
+      int sum=0;
+        for (int i = 0; i < strLength; i++)
+        {
+         sum = sum + factorial(ch[i]-'0');
+        }
+        return sum==num?true:false;
+    }
+    static int factorial(int num)
+    {
+        int fact = 1;
+        for (int i = 1; i <=num ; i++)
+        {
+         fact=fact*i;
+        }
+        return fact;
+    }
+}
+
+Output:
+true
