@@ -30,3 +30,27 @@ public class JavaConqueror {
 }
 Output:
 24 is a sunny number
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror {
+    public static void main(String[] args)
+    {
+      int num = 80;
+        System.out.println(sunnyNum(num));
+    }
+    static boolean sunnyNum(int num)
+    {
+     int check = num+1;
+        for (int i = 1; i <check ; i++)
+        {
+         if (i*i==check)
+         {
+             return true;
+         }
+        }
+        return false;
+    }
+}
+Output:
+true
