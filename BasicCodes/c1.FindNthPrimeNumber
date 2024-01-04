@@ -30,3 +30,48 @@ public class JavaConqueror
 }
 Output : 
 379 is the 75th prime number
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+        int num = 75;
+        System.out.println(NthPrime(num));
+    }
+static int NthPrime(int num)
+    {
+      int infinite = 3, count=0;
+        for (int i = 2; i <infinite ; i++)
+        {
+            if (isPrime(i))
+            {
+                count++;
+            }
+            if (count==num)
+            {
+                return i;
+            }
+            infinite++;
+        }
+        return -1;
+    }
+    static boolean isPrime(int num)
+    {
+        for (int i = 2; i <num ; i++)
+        {
+         if (num%i==0)
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+}
+
+output:
+
+Enter the Number
+75
+379
