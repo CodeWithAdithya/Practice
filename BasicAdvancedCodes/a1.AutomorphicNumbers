@@ -5,7 +5,7 @@ Note:
 ends with the same number itself.
 ▪ Example – 25*25-> 625 (Ending digits are 25 only)
  76*76-> 5776(Ending digits are 76 only)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 public class JavaConqueror {
     public static void main(String[] args)
@@ -29,3 +29,30 @@ public class JavaConqueror {
 }
 Output:
 25 is a Automorphic Number
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaConqueror
+{
+    public static void main(String[] args)
+    {
+      int num = 76;
+        System.out.println(AutomorphicNum(num));
+    }
+    static boolean AutomorphicNum(int num)
+    {
+       String strNum = Integer.toString(num);
+       int strLength = strNum.length();
+       int sqrt = num*num;
+       int div = 1;
+        for (int i = 0; i < strLength; i++)
+        {
+         div = div *10;
+        }
+       int resNum = sqrt%div;
+       return resNum==num?true:false;
+    }
+}
+
+Output:
+true
