@@ -77,3 +77,49 @@ public class JavaConqueror {
 }
 Output : 
 251133297 is a Keith number
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(keithNum(num));
+    }
+    static boolean keithNum(int num)
+    {
+        ArrayList<Integer> list = new ArrayList<>();
+        int sum=0;
+       String strNum = Integer.toString(num);
+       char[] ch = strNum.toCharArray();
+        for (int i = 0; i < strNum.length(); i++)
+        {
+            list.add(ch[i]-'0');
+         sum = sum+ ch[i]-'0';
+        }
+        list.add(sum);
+        int nextNum=0;
+        while (nextNum<num)
+        {
+            int n = strNum.length();
+            nextNum=0;
+            for (int i = 1; i <= n; i++)
+            {
+             nextNum = nextNum + list.get(list.size()-i);
+            }
+            if (nextNum==num)
+            {
+                return true;
+            }
+            list.add(nextNum);
+        }
+      return false;
+    }
+}
+
+Output : 
+Enter first Number
+742
+true
