@@ -40,3 +40,31 @@ public class JavaConqueror {
 }
 Output:
 9 is a neon number
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(neonNum(num));
+    }
+    static boolean neonNum(int num)
+    {
+        int actNum = num*num;
+        int sum=0;
+        String strActNum = Integer.toString(actNum);
+        char[] ch = strActNum.toCharArray();
+        for (int i = 0; i < strActNum.length(); i++)
+        {
+         sum = sum + ch[i]-'0';
+        }
+        return sum==num;
+    }
+}
+
+Output:
+Enter first Number
+9
+true
