@@ -43,3 +43,31 @@ public class JavaConqueror {
 }
 Output:
 1125 is not a spy number
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(spyNum(num));
+    }
+    static boolean spyNum(int num)
+    {
+        String strNum = Integer.toString(num);
+        char[] ch = strNum.toCharArray();
+        int sum=0, product=1;
+        for (int i = 0; i < ch.length; i++)
+        {
+         sum = sum + (ch[i]-'0');
+         product = product * (ch[i]-'0');
+        }
+        return sum==product;
+    }
+}
+output:
+
+Enter first Number
+1124
+true
