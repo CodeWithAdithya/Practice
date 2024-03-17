@@ -80,3 +80,56 @@ public class JavaConqueror
 
 Output:
 true
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(bouncyNum(num));
+    }
+    static boolean bouncyNum(int num)
+    {
+      if (!isIncreasing(num) && !isDecreasing(num))
+      {
+          return true;
+      }
+      return false;
+    }
+    static boolean isIncreasing(int num)
+    {
+        String strNum = Integer.toString(num);
+        char[] ch = strNum.toCharArray();
+        for (int i = 1; i < strNum.length(); i++)
+        {
+         if ((ch[i-1]-'0')>(ch[i]-'0'))
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+    static boolean isDecreasing(int num)
+    {
+        String strNum = Integer.toString(num);
+        char[] ch = strNum.toCharArray();
+        for (int i = 1; i < strNum.length(); i++)
+        {
+            if ((ch[i-1]-'0')<(ch[i]-'0'))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+Output : 
+
+Enter first Number
+123654782
+true
