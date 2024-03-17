@@ -62,3 +62,43 @@ public class JavaConqueror
 }
 Output :
 true
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(sphenicNum(num));
+    }
+    static boolean sphenicNum(int num)
+    {
+        int prod=1;
+        for (int i = 2; i <=num/2 ; i++)
+        {
+         if (num%i==0 && isPrime(i))
+         {
+             prod = prod * i;
+         }
+        }
+        return prod==num;
+    }
+    static boolean isPrime(int num)
+    {
+        for (int i = 2; i <num ; i++)
+        {
+         if (num%i==0)
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+}
+
+Output : 
+
+Enter first Number
+30
+true
