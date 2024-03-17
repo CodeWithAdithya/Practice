@@ -56,3 +56,37 @@ public class JavaConqueror
 Output:
 true
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(duckNum(num));
+    }
+    static boolean duckNum(int num)
+    {
+      String strNum = Integer.toString(num);
+      char[] ch = strNum.toCharArray();
+        if ((ch[0]-'0')==0)
+        {
+            return false;
+        }
+        for (int i = 1; i < strNum.length(); i++)
+        {
+         if ((ch[i]-'0')==0)
+         {
+             return true;
+         }
+        }
+        return false;
+    }
+}
+
+Output : 
+Enter first Number
+12305
+true
