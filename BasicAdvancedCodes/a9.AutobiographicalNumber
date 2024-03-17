@@ -66,3 +66,48 @@ public class JavaConqueror {
 }
 Output:
 2020 is an autobiographical number.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first Number");
+        int num = sc.nextInt();
+        System.out.println(autobiographicNum(num));
+    }
+    static boolean autobiographicNum(int num)
+    {
+       String strNum = Integer.toString(num);
+       char[] ch = strNum.toCharArray();
+       int count=0;
+       boolean[] seen = new boolean[strNum.length()];
+        for (int i = 0; i <strNum.length() ; i++)
+        {
+            count=0;
+            for (int j = 0; j < strNum.length(); j++)
+            {
+                if ((ch[j]-'0')==i)
+                {
+                 count++;
+                }
+            }
+            if (count==(ch[i]-'0'))
+            {
+                seen[i]=true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+Output : 
+
+Enter first Number
+21200
+true
