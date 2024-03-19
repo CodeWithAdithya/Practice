@@ -10,7 +10,7 @@
 public class PractiseNow {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter first Number");
+        System.out.println("Enter Any Number");
         int n = sc.nextInt();
         pattern1(n);
     }
@@ -28,7 +28,8 @@ public class PractiseNow {
 }
 
 Output : 
-
+Enter Any Number
+4
 * * * * 
 * * * * 
 * * * * 
