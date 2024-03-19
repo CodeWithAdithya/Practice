@@ -1,0 +1,10 @@
+
+/* How to execute any pattern */
+
+How to Approach : 
+
+Step-1: No.Of Lines = No.Of Rows = No.Of times Outer Loop will Run.
+
+Step-2 : Identify No.of Rows and No.of Columns and their logic.
+
+Step-3 : What do you want to print.
