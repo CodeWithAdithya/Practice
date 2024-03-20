@@ -1,0 +1,46 @@
+/* print the following pattern */
+
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Any Number");
+        int n = sc.nextInt();
+        pattern10(n);
+    }
+    static void pattern10(int n)
+    {
+        for (int row = 1; row <=n ; row++)
+        {
+            for (int spaces = 1; spaces <=(n-row) ; spaces++)
+            {
+                System.out.print(" ");
+            }
+            for (int column = 1; column <=row ; column++)
+            {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+Output : 
+
+Enter Any Number
+5
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
