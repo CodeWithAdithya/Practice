@@ -1,0 +1,41 @@
+/* print the following pattern */
+
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Any Number");
+        int n = sc.nextInt();
+        pattern3(n);
+    }
+    static void pattern3(int n)
+    {
+        for (int row = 1; row <=n ; row++)
+        {
+            for (int column = 1; column<=row; column++)
+            {
+                System.out.print(column+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Output : 
+
+Enter Any Number
+5
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
