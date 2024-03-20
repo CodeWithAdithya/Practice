@@ -1,0 +1,38 @@
+/* print the following pattern */
+
+* * * * 
+* * * 
+* * 
+*
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Any Number");
+        int n = sc.nextInt();
+        pattern3(n);
+    }
+    static void pattern3(int n)
+    {
+        for (int row = 1; row <=n ; row++)
+        {
+            for (int column = 1; column<=(n-row+1); column++)
+            {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+Output : 
+
+Enter Any Number
+4
+* * * * 
+* * * 
+* * 
+* 
