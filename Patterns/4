@@ -19,9 +19,9 @@ public class PractiseNow
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Any Number");
         int n = sc.nextInt();
-        pattern3(n);
+        pattern4(n);
     }
-    static void pattern3(int n)
+    static void pattern4(int n)
     {
         for (int row = 1; row <=(2*n-1) ; row++)
         {
