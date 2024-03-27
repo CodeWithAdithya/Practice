@@ -1,0 +1,49 @@
+/* print the following pattern */
+
+1 
+0 1 
+1 0 1 
+0 1 0 1 
+1 0 1 0 1
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        Pattern(n);
+    }
+    static void Pattern(int n)
+    {
+        for (int row = 1; row <=n ; row++)
+        {
+            for (int column = 1; column <=row ; column++)
+            {
+             if ((row+column)%2==0)
+             {
+                 System.out.print("1 ");
+             }
+             else
+             {
+                 System.out.print("0 ");
+             }
+            }
+            System.out.println();
+        }
+    }
+}
+
+Output : 
+
+Enter the number
+5
+
+1 
+0 1 
+1 0 1 
+0 1 0 1 
+1 0 1 0 1
