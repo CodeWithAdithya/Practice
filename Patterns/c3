@@ -1,0 +1,54 @@
+/* print the following program */
+
+       a
+       B c
+       D e F
+       g H i J
+       k L m N o
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        Pattern(n);
+    }
+    static void Pattern(int n)
+    {
+        int counter = 1;
+        for (int row = 1; row <=n ; row++)
+        {
+            for (int column = 1; column <=row ; column++)
+            {
+                int small = 96;
+                int capital = 64;
+               if (counter%2==0)
+               {
+                   capital = capital+counter;
+                   System.out.print((char)capital+" ");
+               }
+               else
+               {
+                   small = small + counter;
+                   System.out.print((char)small+" ");
+               }
+                counter++;
+            }
+            System.out.println();
+        }
+    }
+}
+Output : 
+
+Enter the number
+5
+
+a 
+B c 
+D e F 
+g H i J 
+k L m N o
