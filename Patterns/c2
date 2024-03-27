@@ -1,0 +1,43 @@
+/* print the following pattern */
+
+E 
+D E 
+C D E 
+B C D E 
+A B C D E
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        Pattern(n);
+    }
+    static void Pattern(int n)
+    {
+
+        for (int row = 1; row <=n ; row++)
+        {
+            int printer = (64+n)-row+1;
+            for (int column = 1; column <=row ; column++)
+            {
+                System.out.print((char) printer+" ");
+                printer++;
+            }
+            System.out.println();
+        }
+    }
+}
+Output : 
+
+Enter the number
+5
+E 
+D E 
+C D E 
+B C D E 
+A B C D E
