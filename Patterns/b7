@@ -1,0 +1,60 @@
+/* print the following pattern */
+
+         1
+        212
+       32123
+      4321234
+       32123
+        212
+         1
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        Pattern(n);
+    }
+    static void Pattern(int n)
+    {
+        for (int row = 1; row <=2*n-1 ; row++)
+        {
+         int printer1 = row<=n?row:(2*n-row);
+         int printer2 = 2;
+         int upto1 = row<=n?(n-row):(row-n);
+            for (int spaces = 1; spaces <=upto1 ; spaces++)
+            {
+                System.out.print(" ");
+            }
+            int upto2 = row<=n?row:(2*n)-row;
+            for (int column1 = 1; column1 <=upto2 ; column1++)
+            {
+                System.out.print(printer1);
+                printer1--;
+            }
+            int upto3 = row<=n?(row-1):(2*n-1)-row;
+            for (int column2 = 1; column2 <=upto3 ; column2++)
+            {
+                System.out.print(printer2);
+                printer2++;
+            }
+            System.out.println();
+        }
+    }
+}
+
+Output : 
+
+Enter the number
+4
+   1
+  212
+ 32123
+4321234
+ 32123
+  212
+   1
