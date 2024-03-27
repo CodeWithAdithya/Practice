@@ -1,0 +1,50 @@
+/* print the following program */
+
+4 4 4 4 4 4 4 
+4 3 3 3 3 3 4 
+4 3 2 2 2 3 4 
+4 3 2 1 2 3 4 
+4 3 2 2 2 3 4 
+4 3 3 3 3 3 4 
+4 4 4 4 4 4 4
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        Pattern(n);
+    }
+    static void Pattern(int n)
+    {
+        int originalN = n;
+        n = (2*n)-2;
+        for (int row = 0; row <=n ; row++)
+        {
+            for (int column = 0; column <=n; column++)
+            {
+             int atEveryIndex =   originalN - Math.min(Math.min(row,column),Math.min(n-row,n-column));
+                System.out.print(atEveryIndex+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Output : 
+
+Enter the number
+4
+
+4 4 4 4 4 4 4 
+4 3 3 3 3 3 4 
+4 3 2 2 2 3 4 
+4 3 2 1 2 3 4 
+4 3 2 2 2 3 4 
+4 3 3 3 3 3 4 
+4 4 4 4 4 4 4 
