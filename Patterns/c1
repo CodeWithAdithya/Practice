@@ -1,0 +1,62 @@
+/* print the following pattern */
+
+      1 2 3 4  17 18 19 20
+        5 6 7  14 15 16
+          8 9  12 13
+            10 11
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        Pattern(n);
+    }
+    static void Pattern(int n)
+    {
+        int printer=1;
+        int printer2 = 0;
+        int cup=0;
+        for (int i = n; i >=1 ; i--)
+        {
+            printer2 = printer2+i;
+        }
+        printer2 = printer2*2 - (n-1);
+        for (int row = 1; row <=n ; row++)
+        {
+            for (int spaces1 = 1; spaces1 <=(row-1) ; spaces1++)
+            {
+                System.out.print("  ");
+            }
+            for (int column1 = 1; column1 <=(n-row)+1 ; column1++)
+            {
+                System.out.print(printer+" ");
+                printer++;
+            }
+            for (int spaces2 = 1; spaces2 <=1 ; spaces2++)
+            {
+                    System.out.print(" ");
+            }
+            for (int column2 = 1; column2 <=(n-row)+1 ; column2++)
+            {
+                System.out.print(printer2+" ");
+                printer2++;
+                cup = 2*column2-1;
+            }
+            System.out.println();
+            printer2 = printer2-cup;
+        }
+    }
+}
+Output : 
+
+Enter the number
+4
+1 2 3 4  17 18 19 20 
+  5 6 7  14 15 16 
+    8 9  12 13 
+      10  11 
