@@ -45,9 +45,9 @@ public class PractiseNow
         {
          arr[i]= sc.nextInt();
         }
-        System.out.println("Minimum value is : "+MaximumNumInArray(arr));
+        System.out.println("Minimum value is : "+MinimumNumInArray(arr));
     }
-    static int MaximumNumInArray(int[] arr)
+    static int MinimumNumInArray(int[] arr)
     {
        if (arr==null || arr.length==0)
        {
