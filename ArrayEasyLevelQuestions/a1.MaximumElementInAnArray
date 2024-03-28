@@ -46,7 +46,7 @@ public class PractiseNow
         {
          arr[i]= sc.nextInt();
         }
-        System.out.println(MaximumNumInArray(arr));
+        System.out.println(("Maximum Value is : "+MaximumNumInArray(arr));
     }
     static int MaximumNumInArray(int[] arr)
     {
@@ -76,4 +76,4 @@ Enter the Array Elements
 48
 556
 25
-779  -> Output
+Maximum Value is : 779
