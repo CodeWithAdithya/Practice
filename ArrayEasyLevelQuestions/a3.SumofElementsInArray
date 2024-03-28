@@ -25,3 +25,48 @@ public class JavaConqueror
 
 Output:
 550
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Size of an Array");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the Array Elements");
+        for (int i = 0; i < n; i++)
+        {
+         arr[i]= sc.nextInt();
+        }
+        System.out.println("Sum value is : "+MaximumNumInArray(arr));
+    }
+    static int MaximumNumInArray(int[] arr)
+    {
+       if (arr==null || arr.length==0)
+       {
+           return -1;
+       }
+       int sum = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+        sum = sum + arr[i];
+        }
+        return sum;
+    }
+}
+
+Output : 
+
+Enter the Size of an Array
+5
+Enter the Array Elements
+15
+789
+456
+358
+964
+Sum value is : 2582
