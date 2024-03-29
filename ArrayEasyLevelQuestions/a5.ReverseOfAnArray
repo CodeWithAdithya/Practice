@@ -49,7 +49,7 @@ public class PractiseNow
         {
             arr[i] = sc.nextInt();
         }
-        System.out.println(Arrays.toString(ReverseOfArray(arr)));
+       System.out.println("The output After Reversing is : "+Arrays.toString(ReverseOfArray(arr)));
     }
     static int[] ReverseOfArray(int[] arr)
     {
@@ -84,4 +84,4 @@ Enter Array Elements
 3
 4
 5
-[5, 4, 3, 2, 1]
+The output After Reversing is : [5, 4, 3, 2, 1]
