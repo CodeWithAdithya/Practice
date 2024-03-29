@@ -30,3 +30,58 @@ public class JavaConqueror
 }
 Output:
 5
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Size of an Array");
+        int size = sc.nextInt();
+        System.out.println("Enter Target Value");
+        int target = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter Array Elements");
+        for (int i = 0; i <size; i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Target Occurrence is : "+countTheTarget(arr,target));
+    }
+    static int countTheTarget(int[] arr, int target)
+    {
+        int count=0;
+        if (arr==null|| arr.length==0)
+        {
+            return -1;
+        }
+        for (int i = 0; i < arr.length; i++)
+        {
+         if (arr[i]==target)
+         {
+             count++;
+         }
+        }
+        return count;
+    }
+}
+
+Output : 
+
+Enter the Size of an Array
+8
+Enter Target Value
+5
+Enter Array Elements
+3
+8
+9
+7
+5
+1
+5
+8
+Target Occurrence is : 2
+
