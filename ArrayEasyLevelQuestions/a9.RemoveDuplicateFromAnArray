@@ -40,3 +40,81 @@ public class JavaConqueror
 
 Output:
 [2, 3, 4, 1, 5, 6, 7]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//SORT THE ARRAY WITH THE HELP OF TWO POINTERS REMOVE DUPLICATES//
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of Array");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter Array Elements");
+        for (int i = 0; i < size; i++)
+        {
+            arr[i]= sc.nextInt();
+        }
+        System.out.println(RemoveDuplicates(arr));
+    }
+    static ArrayList RemoveDuplicates(int[] arr)
+    {
+        if (arr==null || arr.length==0)
+        {
+            return new ArrayList<>(){{add(-1);add(-1);}};
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        sort(arr);
+        int slowPointer=0, fastPointer=1;
+        while (fastPointer< arr.length)
+        {
+            if (arr[slowPointer]!=arr[fastPointer])
+            {
+                list.add(arr[slowPointer]);
+            }
+                slowPointer++;
+               fastPointer++;
+        }
+        list.add(arr[slowPointer]);
+        return list;
+    }
+    static int[] sort(int[] arr)
+    {
+        if (arr==null || arr.length==0)
+        {
+            return new int[]{-1,-1};
+        }
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 1; j < arr.length ; j++)
+            {
+             if (arr[j-1]>arr[j])
+             {
+                 int temp = arr[j-1];
+                 arr[j-1] = arr[j];
+                 arr[j] = temp;
+             }
+            }
+        }
+        return arr;
+    }
+}
+
+Output : 
+
+Enter the size of Array
+7
+Enter Array Elements
+1
+2
+2
+3
+4
+4
+5
+[1, 2, 3, 4, 5]
+
+
