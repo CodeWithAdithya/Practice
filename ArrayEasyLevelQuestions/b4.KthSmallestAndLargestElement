@@ -1,11 +1,142 @@
 /* write a program to find kth smallest and kth largest element in an array */
 
+Method-1: Sort the Array and find the kth largest or kth smallest by using index numbers.
+
+Mehod-2: Use Priority Queue.
+
 Note : So, kth smallest and kth largest element in the sorted order not the kth distinct element. (Duplicates are considered) 
 
-Idea is to use Priority Queue
+Best Practise  is to use Priority Queue
 
 ---------------------------------------------------------------------------------------------------------------------------------------------\
 
+// kth Smallest 
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of Array");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter 1st Array Elements");
+        for (int i = 0; i < size; i++)
+        {
+            arr[i]= sc.nextInt();
+        }
+        System.out.println("Enter the kth element");
+        int target = sc.nextInt();
+        System.out.println((kthMinANDMax(arr,target)));
+    }
+    static int kthMinANDMax(int[] arr, int target)
+    {
+      if (arr==null || arr.length==0)
+      {
+          return -1;
+      }
+      sort(arr);
+       return arr[target-1];
+    }
+    static int[] sort(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 1; j <arr.length ; j++)
+            {
+             if (arr[j-1]>arr[j])
+             {
+                 int temp = arr[j-1];
+                 arr[j-1] = arr[j];
+                 arr[j] = temp;
+             }
+            }
+        }
+        return arr;
+    }
+}
+
+Output : 
+Enter the size of Array
+8
+Enter 1st Array Elements
+111
+555
+777
+333
+222
+444
+666
+888
+Enter the kth element
+4
+444
+
+//kth Largest
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of Array");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter 1st Array Elements");
+        for (int i = 0; i < size; i++)
+        {
+            arr[i]= sc.nextInt();
+        }
+        System.out.println("Enter the kth element");
+        int target = sc.nextInt();
+        System.out.println((kthMax(arr,target)));
+    }
+    static int kthMax(int[] arr, int target)
+    {
+      if (arr==null || arr.length==0)
+      {
+          return -1;
+      }
+      ReverseSort(arr);
+       return arr[target-1];
+    }
+    static int[] ReverseSort(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 1; j <arr.length ; j++)
+            {
+             if (arr[j-1]<arr[j])
+             {
+                 int temp = arr[j-1];
+                 arr[j-1] = arr[j];
+                 arr[j] = temp;
+             }
+            }
+        }
+        return arr;
+    }
+}
+
+Output : 
+
+Enter the size of Array
+8
+Enter 1st Array Elements
+444
+222
+333
+777
+888
+111
+555
+666
+Enter the kth element
+2
+777
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//BEST PRACTISE IS TO USE PRIORITY QUEUE
 
 import java.util.*;
 
