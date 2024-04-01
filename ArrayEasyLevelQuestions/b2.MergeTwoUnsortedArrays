@@ -23,3 +23,64 @@ public class JavaConqueror
 }
 Output:
 [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PractiseNow
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of Array 1");
+        int size1 = sc.nextInt();
+        System.out.println("Enter the size of Array 2");
+        int size2 = sc.nextInt();
+        int[] arr1 = new int[size1];
+        System.out.println("Enter 1st Array Elements");
+        for (int i = 0; i < size1; i++)
+        {
+            arr1[i]= sc.nextInt();
+        }
+        int[] arr2 = new int[size2];
+        System.out.println("Enter 2nd Array Elements");
+        for (int i = 0; i < size2; i++)
+        {
+            arr2[i]= sc.nextInt();
+        }
+        System.out.println(Arrays.toString(MergeUnSortedArrays(arr1,arr2)));
+    }
+    static int[] MergeUnSortedArrays(int[] arr1,int[] arr2)
+    {
+        int j=0;
+     int[] result = new int[arr1.length+ arr2.length];
+        for (int i = 0; i < arr1.length; i++)
+        {
+         result[i] = arr1[i];
+        }
+        for (int i = arr1.length; i < result.length ; i++)
+        {
+          result[i] = arr2[j];
+          j++;
+        }
+        return result;
+    }
+}
+
+Output : 
+
+Enter the size of Array 1
+5
+Enter the size of Array 2
+4
+Enter 1st Array Elements
+1
+2
+3
+4
+5
+Enter 2nd Array Elements
+4
+3
+2
+1
+[1, 2, 3, 4, 5, 4, 3, 2, 1]
