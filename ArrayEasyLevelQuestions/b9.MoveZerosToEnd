@@ -39,37 +39,57 @@ Output :
 
 import java.util.*;
 
-public class JavaConqueror {
+public class PractiseNow {
     public static void main(String[] args) {
-        int[] nums = {0, 2, 3, 0, 4, 0, 5, 6, 0, 7, 0, 8, 9, 0};
-        zeroAtEnd(nums);
-        System.out.println(Arrays.toString(nums));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("ENTER SIZE OF AN ARRAY");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("ENTER ARRAY ELEMENTS");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println(Arrays.toString(putZerosToEnd(arr)));
     }
 
-    static void zeroAtEnd(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return;
+    static int[] putZerosToEnd(int[] arr)
+    {
+        if (arr == null || arr.length == 0) {
+            return new int[]{-1,-1};
         }
-
-        int nonZeroIndex = 0;
-
-        // Traverse the array and move non-zero elements to the front
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                if (i != nonZeroIndex) {
-                    swap(nums, nonZeroIndex, i);
-                }
-                nonZeroIndex++;
-            }
+       int nonZeroIndex=0;
+        for (int i = 0; i < arr.length; i++)
+        {
+         if (arr[i]!=0)
+         {
+             if (i!=nonZeroIndex)
+             {
+                 swap(arr,i,nonZeroIndex);
+             }
+             nonZeroIndex++;
+         }
         }
+        return arr;
     }
-
-    static void swap(int[] nums, int first, int second) {
-        int temp = nums[first];
-        nums[first] = nums[second];
-        nums[second] = temp;
+    static void swap(int[] arr,int first,int second)
+    {
+        int temp = arr[first];
+        arr[first]=arr[second];
+        arr[second] = temp;
     }
 }
+
 Output : 
-[2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0]
+ENTER SIZE OF AN ARRAY
+8
+ENTER ARRAY ELEMENTS
+2
+0
+7
+0
+5
+0
+9
+0
+[2, 7, 5, 9, 0, 0, 0, 0]
 
