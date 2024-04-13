@@ -1,13 +1,13 @@
 /* write a program to find the missing number in an array of consecutive numbers */
 
 Note: To find all consecutive numbers from 1 to N , the formula is n*(n+1) /2 , 
-but if the total element is missing then we know that by default the array size reduces by 1.
-  so, new formula be ((n+1)*(n+2))/2.
+Any Element is Missing from the Array,in Element's place there should be Zero. 
+To find the Zero the Formula is ((length)*(length+1))/2;
 ------------------------------------------------------------------------------------------------------------------------------------
 
   public class JavaConqueror {
     public static void main(String[] args) {
-        int[] nums = {3,1,5,6,7,4,9,2};
+        int[] nums = {3,1,5,6,7,4,9,2,0};
         System.out.println(missingNumber(nums));
     }
 
@@ -16,7 +16,7 @@ but if the total element is missing then we know that by default the array size 
             return -1;
         }
         int length = nums.length;
-        int expectedSum = (length+1) * (length + 2) / 2;
+        int expectedSum = (length) * (length + 1) / 2;
         int actualSum = 0;
         for (int i = 0; i < nums.length; i++) {
             actualSum = actualSum + nums[i];
