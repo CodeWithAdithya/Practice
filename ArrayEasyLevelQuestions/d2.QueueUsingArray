@@ -85,3 +85,87 @@ Output:
 5 9 78 34 45 55 559 END
 5
 9 78 34 45 55 559 END
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class CustomStack
+{
+    int size = 10;
+    int[] arr = new int[size];
+    int pointer = 0;
+    public boolean isFull()
+    {
+        if (pointer== arr.length)
+        {
+           return true;
+        }
+        return false;
+    }
+    public boolean isEmpty()
+    {
+        if (pointer==0)
+        {
+            return true;
+        }
+        return false;
+    }
+    public void add(int item)
+    {
+        if (isFull())
+        {
+            int[] temp = new int[size*2];
+            for (int i = 0; i < arr.length; i++)
+            {
+             temp[i] = arr[i];
+            }
+            arr = temp;
+        }
+        arr[pointer]=item;
+        pointer++;
+    }
+    public int remove()
+    {
+        if (isEmpty())
+        {
+            System.out.println("QUEUE IS EMPTY");
+        }
+        int remove = arr[0];
+        for (int i = 1; i <pointer ; i++)
+        {
+         arr[i-1] = arr[i];
+        }
+        pointer--;
+        return remove;
+    }
+   public void display()
+   {
+       for (int i = 0; i < pointer; i++)
+       {
+           System.out.print(arr[i]+" <- ");
+       }
+       System.out.println("END");
+   }
+
+    public static void main(String[] args)
+    {
+     CustomStack queue = new CustomStack();
+        queue.add(134);
+        queue.add(234);
+        queue.add(334);
+        queue.add(434);
+        queue.add(534);
+        queue.add(634);
+        queue.add(734);
+        queue.add(834);
+        queue.display();
+        System.out.println(queue.remove());
+        queue.display();
+    }
+}
+
+Output : 
+
+134 <- 234 <- 334 <- 434 <- 534 <- 634 <- 734 <- 834 <- END
+134
+234 <- 334 <- 434 <- 534 <- 634 <- 734 <- 834 <- END
