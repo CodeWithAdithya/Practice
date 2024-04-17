@@ -99,3 +99,97 @@ Output:
 5 9 78 34 45 55 559 END
 5
 9 78 34 45 55 559 678 END
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class CustomCircularQueue
+{
+    int size = 10;
+    int[] arr = new int[size];
+    int front =0, end = 0;
+    public boolean isFull()
+    {
+        if (arr.length==size)
+        {
+            return true;
+        }
+        return false;
+    }
+    public boolean isEmpty()
+    {
+        if (size==0)
+        {
+            return true;
+        }
+        return false;
+    }
+    public void add(int item)
+    {
+        if (isFull())
+        {
+            int[] temp = new int[size*2];
+            for (int i = 0; i < arr.length; i++)
+            {
+             temp[i] = arr[i];
+            }
+            arr = temp;
+        }
+        arr[end]=item;
+        end++;
+        end=end% arr.length;
+        size++;
+    }
+    public int remove()
+    {
+        if (isEmpty())
+        {
+            System.out.println("QUEUE IS EMPTY");
+        }
+        int remove = arr[front];
+        front++;
+        front = front%arr.length;
+        return remove;
+    }
+    public int peek()
+    {
+        if (isEmpty())
+        {
+            System.out.println("QUEUE IS EMPTY");
+        }
+        int peekValue = arr[front];
+        return peekValue;
+    }
+    public void display()
+    {
+        for (int i = front; i <end ; i++)
+        {
+            System.out.print(arr[i]+" -> ");
+        }
+        System.out.println("END");
+    }
+
+    public static void main(String[] args)
+    {
+     CustomCircularQueue circularQueue = new CustomCircularQueue();
+        circularQueue.add(123);
+        circularQueue.add(223);
+        circularQueue.add(323);
+        circularQueue.add(723);
+        circularQueue.add(823);
+        circularQueue.add(423);
+        circularQueue.add(523);
+        circularQueue.display();
+        System.out.println(circularQueue.remove());
+        circularQueue.display();
+        System.out.println(circularQueue.peek());
+        circularQueue.display();
+    }
+}
+
+Output : 
+
+123 -> 223 -> 323 -> 723 -> 823 -> 423 -> 523 -> END
+123
+223 -> 323 -> 723 -> 823 -> 423 -> 523 -> END
+223
+223 -> 323 -> 723 -> 823 -> 423 -> 523 -> END
