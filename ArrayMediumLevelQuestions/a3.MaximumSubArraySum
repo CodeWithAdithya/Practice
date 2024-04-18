@@ -1,0 +1,66 @@
+/* Find the Maximum Sub-Array Sum */
+
+Certainly! The maximum subarray sum problem is a classic algorithmic problem. One efficient way to solve it is using Kadane's algorithm.
+
+Kadane's algorithm is a dynamic programming approach to solve the maximum subarray sum problem efficiently.
+The problem is defined as finding the contiguous subarray within a one-dimensional array of numbers that has the largest sum.
+
+Here's a step-by-step explanation of Kadane's algorithm:
+
+Initialization:
+
+Initialize two variables, maxEndingHere and maxSoFar, to the value of the first element in the array.
+Iterating through the array:
+
+Start iterating from the second element of the array.
+For each element at index i, calculate maxEndingHere as the maximum of the current element and the sum of maxEndingHere and the current element.
+Update maxSoFar as the maximum of maxSoFar and maxEndingHere.
+The idea here is to keep track of the maximum subarray sum ending at each position while iterating through the array.
+
+Final Result:
+
+After iterating through the entire array, maxSoFar will contain the maximum subarray sum.
+The algorithm exploits the fact that, for any index i, the maximum subarray ending at position i is either the element at i itself 
+or the sum of the maximum subarray ending at position i-1 and the element at i. By maintaining these two variables (maxEndingHere and maxSoFar),
+the algorithm efficiently computes the maximum subarray sum without the need for nested loops.
+
+Here's a simple example to illustrate the process:
+
+Consider the array: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+Iteration 1: maxEndingHere = -2, maxSoFar = -2
+Iteration 2: maxEndingHere = 1, maxSoFar = 1
+Iteration 3: maxEndingHere = -2, maxSoFar = 1
+Iteration 4: maxEndingHere = 4, maxSoFar = 4
+Iteration 5: maxEndingHere = 3, maxSoFar = 4
+Iteration 6: maxEndingHere = 5, maxSoFar = 5
+Iteration 7: maxEndingHere = 6, maxSoFar = 6
+Iteration 8: maxEndingHere = 1, maxSoFar = 6
+Iteration 9: maxEndingHere = 5, maxSoFar = 6
+So, the maximum subarray sum is 6.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MaximumSubarraySum {
+
+    public static int maxSubArraySum(int[] nums) {
+        int maxEndingHere = nums[0];
+        int maxSoFar = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            maxEndingHere = Math.max(nums[i], maxEndingHere + nums[i]);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+
+        return maxSoFar;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int maxSum = maxSubArraySum(nums);
+        System.out.println("Maximum Subarray Sum: " + maxSum);
+    }
+}
+
+Output:
+6
