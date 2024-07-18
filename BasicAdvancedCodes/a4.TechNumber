@@ -83,3 +83,33 @@ Output:
 Enter any Number
 2025
 true
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number");
+        int num = sc.nextInt();
+        System.out.println(techNum(num));
+    }
+      static boolean techNum(int num)
+      {
+          String str = Integer.toString(num);
+          int length = str.length();
+          if (length%2!=0)
+          {
+              return false;
+          }
+          String str1 = str.substring(0,2);
+          String str2 = str.substring(2,4);
+          int num1 = Integer.parseInt(str1);
+          int num2 = Integer.parseInt(str2);
+          int sum = num1+num2;
+          return sum*sum==num?true:false;
+      }
+}
+
+Enter the Number
+2025
+true
