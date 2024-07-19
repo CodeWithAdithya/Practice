@@ -123,3 +123,37 @@ Output :
 Enter first Number
 742
 true
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the 1st Number");
+        int num = sc.nextInt();
+        System.out.println(keithNum(num));
+    }
+      static boolean keithNum(int num)
+      {
+       String strNum = Integer.toString(num);
+       List<Integer> list = new ArrayList<>();
+       int nextNum=0;
+          for (int i = 0; i < strNum.length(); i++)
+          {
+              list.add(strNum.charAt(i)-'0');
+              nextNum = nextNum + strNum.charAt(i) - '0';
+
+          }
+          list.add(nextNum);
+          for (int i = strNum.length(); i <= 10000; i++)
+          {
+              if (num == nextNum)
+              {
+                  return true;
+              }
+              nextNum = list.get(i)+ list.get(i-1)+list.get(i-2);
+              list.add(nextNum);
+          }
+         return false;
+      }
+}
