@@ -70,3 +70,55 @@ public class JavaConqueror {
 }
 Output:
 true
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number");
+        int num = sc.nextInt();
+        System.out.println(smithNum(num));
+    }
+    static int digitSum(int num)
+    {
+        int sum=0;
+        while (num>0)
+        {
+            int last = num%10;
+            sum = sum + last;
+            num=num/10;
+        }
+        return sum;
+    }
+    static boolean isPrime(int num)
+    {
+        for (int i = 2; i <num ; i++)
+        {
+         if (num%i==0)
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+    static boolean smithNum(int num)
+    {
+        int sum=0;
+        for (int i = 2; i <num ; i++)
+        {
+         if (num%i==0 && isPrime(i))
+         {
+            sum = sum + digitSum(i);
+         }
+        }
+        return sum==digitSum(num);
+    }
+}
+
+Output:
+
+Enter the Number
+85
+true
