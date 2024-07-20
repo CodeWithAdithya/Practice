@@ -86,3 +86,31 @@ public class JavaConqueror
 }
 Output:
 true
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the 1st Number");
+        int num = sc.nextInt();
+        System.out.println(ISBNNum(num));
+    }
+    static boolean ISBNNum(int num)
+    {
+        String strNum = Integer.toString(num);
+        int sum=0,isNum=10;
+        for (int i = 0; i < 10; i++)
+        {
+            sum = sum + (strNum.charAt(i)-'0')*isNum;
+            isNum--;
+        }
+        return sum%11==0;
+    }
+}
+
+Output : 
+1259060977
+true
+
