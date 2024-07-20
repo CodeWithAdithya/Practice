@@ -53,3 +53,32 @@ public class JavaConqueror
 }
 Output:
 12225 is a XYLEM Number
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the 1st Number");
+        int num = sc.nextInt();
+        System.out.println(xylemANDphleomNum(num));
+    }
+    static String xylemANDphleomNum(int num)
+    {
+        String strNum = Integer.toString(num);
+       int sum1 = strNum.charAt(0)-'0' + strNum.charAt(strNum.length()-1)-'0';
+       int sum2 = 0;
+        for (int i = 1; i <=strNum.length()-2 ; i++)
+        {
+         sum2 = sum2 + strNum.charAt(i)-'0';
+        }
+        return sum1==sum2?"xylem Number":"phleom Number";
+    }
+}
+
+Output :
+
+Enter the 1st Number
+11112
+xylem Number
