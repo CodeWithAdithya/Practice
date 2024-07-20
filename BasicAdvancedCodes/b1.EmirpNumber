@@ -63,3 +63,51 @@ public class JavaConqueror
 }
 Output:
 true
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number");
+        int num = sc.nextInt();
+        System.out.println(emirpNum(num));
+    }
+    static boolean isPrime(int num)
+    {
+        for (int i = 2; i < num; i++)
+        {
+         if (num%i==0)
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+    static int reverseNum(int num)
+    {
+        int rev=0;
+        while (num>0)
+        {
+            int last = num%10;
+            num= num/10;
+            rev = rev*10+last;
+        }
+        return rev;
+    }
+      static boolean emirpNum(int num)
+      {
+      if (isPrime(num) && isPrime(reverseNum(num)))
+      {
+          return true;
+      }
+      return false;
+      }
+}
+
+Output : 
+
+Enter the Number
+199
+true
