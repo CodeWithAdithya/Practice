@@ -93,7 +93,7 @@ public class Practise {
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the 1st Number");
+        System.out.println("Enter the Number");
         int num = sc.nextInt();
         System.out.println(ISBNNum(num));
     }
@@ -111,6 +111,7 @@ public class Practise {
 }
 
 Output : 
+Enter the Number
 1259060977
 true
 
