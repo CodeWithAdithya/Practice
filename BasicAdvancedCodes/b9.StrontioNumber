@@ -41,3 +41,32 @@ public class JavaConqueror {
 }
 Output : 
 true
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number");
+        int num = sc.nextInt();
+        System.out.println(strontioNum(num));
+    }
+    static boolean strontioNum(int num)
+    {
+        String strNum = Integer.toString(num);
+        if (strNum.length()!=4)
+        {
+            return false;
+        }
+        int actNum = num*2;
+       String strActNum = Integer.toString(actNum);
+       return strActNum.charAt(1)-'0'==strActNum.charAt(2)-'0';
+    }
+}
+
+Output : 
+
+Enter the Number
+1221
+true
