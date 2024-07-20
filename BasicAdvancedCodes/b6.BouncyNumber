@@ -133,3 +133,50 @@ Output :
 Enter first Number
 123654782
 true
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number");
+        int num = sc.nextInt();
+        System.out.println(bouncyNum(num));
+    }
+
+    static boolean isIncreasingNum(int num)
+    {
+        String strNum = Integer.toString(num);
+        for (int i = 1; i < strNum.length(); i++)
+        {
+         if (strNum.charAt(i-1)-'0'>strNum.charAt(i)-'0')
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+    static boolean isDecreasingNum(int num)
+    {
+        String strNum = Integer.toString(num);
+        for (int i = 1; i < strNum.length(); i++)
+        {
+            if (strNum.charAt(i-1)-'0'<strNum.charAt(i)-'0')
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    static boolean bouncyNum(int num)
+    {
+        return !isIncreasingNum(num)&&!isDecreasingNum(num)?true:false;
+    }
+}
+
+Output : 
+
+Enter the Number
+113425
+true
