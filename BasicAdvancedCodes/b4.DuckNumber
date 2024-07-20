@@ -90,3 +90,35 @@ Output :
 Enter first Number
 12305
 true
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number");
+        int num = sc.nextInt();
+        System.out.println(duckNum(num));
+    }
+    static boolean duckNum(int num)
+    {
+        String strNum = Integer.toString(num);
+
+        for (int i = 1; i <strNum.length() ; i++)
+        {
+         if (strNum.charAt(i)-'0'==0)
+         {
+             return true;
+         }
+        }
+        return false;
+    }
+}
+
+Output : 
+
+Enter the Number
+2022
+true
