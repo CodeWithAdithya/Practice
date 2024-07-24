@@ -112,3 +112,104 @@ Output :
 
 [0, 1, 2, 3][4, 5, 6, 7, 8, 9]
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Merging two Sorted Arrays without using extra space this method is known as Gap method
+
+
+public class Practise {
+    public static void main(String[] args)
+    {
+        int[] arr1 = {0, 2, 4, 6};
+        int[] arr2 = {1, 3, 5, 7, 8, 9};
+        mergeArrays(arr1, arr2);
+        System.out.print(Arrays.toString(arr1));
+        System.out.print(Arrays.toString(arr2));
+    }
+
+    static void swap(int[] arr1, int[] arr2, int first, int second)
+    {
+        if (first < arr1.length && second < arr1.length)
+        {
+            int temp = arr1[first];
+            arr1[first] = arr1[second];
+            arr1[second] = temp;
+        }
+        else if (first < arr1.length && second >= arr1.length)
+        {
+            int temp = arr1[first];
+            arr1[first] = arr2[second - arr1.length];
+            arr2[second - arr1.length] = temp;
+        }
+        else if (first >= arr1.length && second >= arr1.length)
+        {
+            int temp = arr2[first - arr1.length];
+            arr2[first - arr1.length] = arr2[second - arr1.length];
+            arr2[second - arr1.length] = temp;
+        }
+    }
+
+    static void mergeArrays(int[] arr1, int[] arr2)
+    {
+        if (arr1 == null || arr2 == null || arr1.length == 0 || arr2.length == 0)
+        {
+            return;
+        }
+
+        int arr1Length = arr1.length;
+        int arr2Length = arr2.length;
+        int totalArraysLength = arr1Length + arr2Length;
+
+        int gap = nextGap(totalArraysLength);
+
+        while (gap > 0)
+        {
+            int firstPointer = 0;
+            int secondPointer = gap;
+
+            while (secondPointer < totalArraysLength)
+            {
+                if (secondPointer < arr1Length)
+                {
+                    // Both pointers are in arr1
+                    if (arr1[firstPointer] > arr1[secondPointer])
+                    {
+                        swap(arr1, arr1, firstPointer, secondPointer);
+                    }
+                }
+                else if (firstPointer < arr1Length && secondPointer >= arr1Length)
+                {
+                    // firstPointer in arr1, secondPointer in arr2
+                    if (arr1[firstPointer] > arr2[secondPointer - arr1Length])
+                    {
+                        swap(arr1, arr2, firstPointer, secondPointer);
+                    }
+                }
+                else
+                {
+                    // Both pointers are in arr2
+                    if (arr2[firstPointer - arr1Length] > arr2[secondPointer - arr1Length])
+                    {
+                        swap(arr2, arr2, firstPointer - arr1Length, secondPointer - arr1Length);
+                    }
+                }
+
+                firstPointer++;
+                secondPointer++;
+            }
+
+            gap = nextGap(gap);
+        }
+    }
+
+    static int nextGap(int gap)
+    {
+        if (gap <= 1)
+            return 0;
+        return (gap / 2) + (gap % 2);
+    }
+}
+
+Output : 
+
+[0, 1, 2, 3][4, 5, 6, 7, 8, 9]
