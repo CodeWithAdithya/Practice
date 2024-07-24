@@ -172,7 +172,7 @@ public class JavaConqueror
          {
              throw new IllegalArgumentException("InvalidInput");
          }
-         PriorityQueue<Integer> max = new PriorityQueue<>((a,b)->b-a);
+         PriorityQueue<Integer> max = new PriorityQueue<>(Comparator.reverseOrder());
          for (int num:nums)
          {
           max.offer(num);
