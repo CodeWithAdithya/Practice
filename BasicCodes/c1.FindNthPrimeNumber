@@ -75,3 +75,48 @@ output:
 Enter the Number
 75
 379
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Inputs");
+        int num = sc.nextInt();
+        System.out.println(nthPrime(num));
+    }
+    static int nthPrime(int num)
+    {
+        int infiNum = 1,count=0;
+        while (count!=num)
+        {
+            infiNum++;
+            if (isPrime(infiNum))
+            {
+                count++;
+            }
+
+        }
+        return infiNum;
+    }
+    static boolean isPrime(int num)
+    {
+        for (int i = 2; i <num ; i++)
+        {
+         if (num%i==0)
+         {
+             return false;
+         }
+        }
+        return true;
+    }
+}
+
+Output : 
+
+Enter Inputs
+100
+541
+
