@@ -1,0 +1,137 @@
+/* Program to Count the Number of Occurrences of Substring in a String *\
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string");
+        String str = sc.nextLine();
+        System.out.println("Enter substring");
+        String subStr = sc.nextLine();
+        countWords(str,subStr);
+    }
+    static void countWords(String str,String subStr)
+    {
+        String[] parts = str.split(subStr,-1);
+
+        int count = parts.length-1;
+
+        System.out.println("Number of Occurrences of "+subStr+" is : "+count);
+    }
+}
+
+Output :
+
+Enter the string
+Java is fun, Java is cool
+Enter substring
+Java
+Number of Occurrences of Java is : 2
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//String Split Concept:
+The split() method divides the string into parts wherever the specified delimiter (in this case, "Java") is found. The delimiter itself is not included in the resulting parts.
+
+Input:
+Original String: "Java is fun, Java is cool"
+Delimiter (Substring): "Java"
+Step-by-Step Execution:
+1. Initial String:
+"Java is fun, Java is cool"
+2. First Occurrence of "Java":
+The delimiter "Java" is found at the very start of the string (index 0).
+The part before this occurrence is empty because there is nothing before the first "Java".
+Result so far:
+[""]
+3. After Removing the First "Java":
+The remaining string becomes:
+" is fun, Java is cool"
+4. Second Occurrence of "Java":
+The delimiter "Java" is found again, starting at index 10 of the remaining string.
+The part before this occurrence is:
+" is fun, "
+Result so far:
+["", " is fun, "]
+5. After Removing the Second "Java":
+The remaining string becomes:
+" is cool"
+6. End of the String:
+There are no more occurrences of "Java", so the final part is:
+" is cool"
+Result so far:
+["", " is fun, ", " is cool"]
+Final Result:
+After processing all occurrences, the string is split into the following parts:
+["", " is fun, ", " is cool"]
+Why is the First Element Empty?
+The first element is empty because "Java" occurs at the very beginning of the string. When splitting, there’s no content before this occurrence, resulting in an empty string ("") 
+as the first part of the array.
+
+Key Notes:
+Delimiter Exclusion: The delimiter ("Java") is not included in any part of the result.
+Empty Strings: If the delimiter occurs at the start or end of the string, split() includes empty strings ("") in the result.
+
+Example for Edge Case:
+Input: "JavaJavaJava"
+Delimiter: "Java"
+
+Output:
+["", "", "", ""]
+Here, every occurrence of "Java" is followed or preceded by an empty string, resulting in multiple empty parts.
+
+Results occurance should be string array size-1;
+
+Why -1?
+The split(String regex, int limit) method in Java uses the limit parameter to control how the string is split. Let's explore why -1 is used and what it does.
+
+What is the limit Parameter?
+The limit parameter determines the number of splits and the behavior of the split() method:
+
+Positive Value (n):
+The result array will have at most n elements.
+If more splits are possible, the remaining part of the string is added as the last element.
+1. Zero (0):
+Removes trailing empty strings from the result array.
+Split happens normally, but empty strings at the end are discarded.
+2. Negative Value (-1):
+No limit on the number of splits.
+All parts, including trailing empty strings, are included in the result array.
+
+Why Use -1?
+Using -1 ensures:
+
+1. No Splits Are Skipped: All occurrences of the delimiter are processed.
+2. Trailing Empty Strings Are Retained: If the string ends with the delimiter, an empty string is added to the result array to represent the "nothingness"
+after the last occurrence of the delimiter.
+
+Example Comparison
+Case 1: split("Java", -1)
+String: "Java is JavaJava" Delimiter: "Java"
+
+Result:
+["", " is ", "", ""]
+Explanation:
+The string is split at every "Java".
+Trailing empty strings are preserved.
+
+Case 2: split("Java", 0)
+String: "Java is JavaJava" Delimiter: "Java"
+Result:
+["", " is ", ""]
+Explanation:
+Trailing empty strings are discarded
+
+Case 3: split("Java", 2)
+String: "Java is JavaJava" Delimiter: "Java"
+Result:
+["", " is JavaJava"]
+Explanation:
+At most 2 parts are created. The remaining string is kept as the last element.
+
+
+Why Use -1 for Counting Substring Occurrences?
+When counting occurrences of a substring, retaining all splits (including trailing empty strings) is important to accurately calculate the number of times the substring appears.
+Hence, -1 is used to ensure no split parts are skipped.
