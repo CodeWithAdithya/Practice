@@ -135,3 +135,43 @@ At most 2 parts are created. The remaining string is kept as the last element.
 Why Use -1 for Counting Substring Occurrences?
 When counting occurrences of a substring, retaining all splits (including trailing empty strings) is important to accurately calculate the number of times the substring appears.
 Hence, -1 is used to ensure no split parts are skipped.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string");
+        String str = sc.nextLine();
+        System.out.println("Enter substring");
+        String subStr = sc.nextLine();
+        countWords(str,subStr);
+    }
+    static void countWords(String str,String subStr)
+    {
+        String[] parts = str.split(" ");
+        int count=0;
+        for (String newStr : parts)
+        {
+           if (newStr.equals(subStr))
+           {
+               count++;
+           }
+        }
+        System.out.println("substring count of "+subStr+" is : "+count);
+    }
+}
+
+Output : 
+
+Enter the string
+Java is good, Java is fun
+Enter substring
+is
+substring count of is is : 2
