@@ -1,0 +1,92 @@
+/*  Check If the String Contains Only Letters or Digits *\
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" letters? : "+ containsOnlyLetters(str1));
+        System.out.println("is "+str2+" letters? : "+ containsOnlyLetters(str2));
+    }
+    static boolean containsOnlyLetters(String str)
+    {
+      return str.matches("[a-zA-Z0-9]+");
+    }
+}
+
+Output:
+
+Enter the first string
+Java
+Enter the second string
+J@va
+is Java letters? : true
+is J@va letters? : false
+
+
+//Explanation:
+-> [a-zA-Z0-9]: Matches any uppercase letter (A-Z), lowercase letter (a-z), or digit (0-9).
+-> +: Ensures the string contains at least one character and that all characters match the pattern.
+-> Returns true if the entire string contains only letters or digits.
+
+Example usage :
+
+    System.out.println(containsOnlyLettersOrDigits("Hello123")); // true
+    System.out.println(containsOnlyLettersOrDigits("Hello 123")); // false (space is not valid)
+    System.out.println(containsOnlyLettersOrDigits("Hello@123")); // false (special character '@' is invalid)
+    System.out.println(containsOnlyLettersOrDigits("")); // false (edge case, no characters)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" letters? : "+ containsOnlyLetters(str1));
+        System.out.println("is "+str2+" letters? : "+ containsOnlyLetters(str2));
+    }
+    static boolean containsOnlyLetters(String str)
+    {
+      for (char ch : str.toCharArray())
+      {
+          if (!Character.isLetterOrDigit(ch))
+          {
+              return false;
+          }
+      }
+      return true;
+    }
+}
+
+Output: 
+
+Enter the first string
+Java
+Enter the second string
+J@va
+is Java letters? : true
+is J@va letters? : false
+
+
+
+//Explanation:
+-> Converts the string into a character array.
+-> Iterates through each character and checks if it is a letter or digit using Character.isLetterOrDigit(ch).
+-> Returns false if any character is not a letter or digit.
+-> Returns true if all characters are valid.
+
+
