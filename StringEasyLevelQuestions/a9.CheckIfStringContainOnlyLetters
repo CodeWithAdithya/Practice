@@ -1,0 +1,81 @@
+/* Check if String Contain Only Letters *\
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" letters? : "+ containsOnlyLetters(str1));
+        System.out.println("is "+str2+" letters? : "+ containsOnlyLetters(str2));
+    }
+    static boolean containsOnlyLetters(String str)
+    {
+       return str.matches("[a-zA-Z]+");
+    }
+}
+
+Output : 
+
+Enter the first string
+Java
+Enter the second string
+Java1
+is Java letters? : true
+is Java1 letters? : false
+
+//Explanation:
+-> [a-zA-Z] matches any letter (uppercase or lowercase).
+-> + ensures the string has at least one character, and all are letters.
+-> Returns true if the entire string contains only letters.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" letters? : "+ containsOnlyLetters(str1));
+        System.out.println("is "+str2+" letters? : "+ containsOnlyLetters(str2));
+    }
+    static boolean containsOnlyLetters(String str)
+    {
+       for (char ch : str.toCharArray())
+       {
+           if (!Character.isLetter(ch))
+           {
+               return false;
+           }
+       }
+       return true;
+    }
+}
+
+Output:
+
+Enter the first string
+java
+Enter the second string
+java1
+is java letters? : true
+is java1 letters? : false
+
+
+Explanation:
+-> Converts the string to a character array.
+-> Iterates through each character and checks if it is a letter using Character.isLetter(ch).
+-> If a non-letter character is found, it returns false.
+-> Returns true only if all characters are letters.
