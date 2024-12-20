@@ -1,0 +1,165 @@
+/* Program to Check if the String Contains Only Digits *\
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" numeric? : "+isNumeric(str1));
+        System.out.println("is "+str2+" numeric? : "+isNumeric(str2));
+    }
+    static boolean isNumeric(String str)
+    {
+        return str.matches("\\d+");
+    }
+}
+
+Output : 
+
+Enter the first string
+12345
+Enter the second string
+123a5
+is 12345 numeric? : true
+is 123a5 numeric? : false
+
+
+//How matches() Works:
+-> matches(): This method returns true if the entire string matches the regex pattern.
+-> It’s part of the String class and is commonly used for simple pattern matching.
+
+Breaking Down the Pattern \\d+:
+
+\\d:
+This is a regex shorthand for a digit, equivalent to [0-9].
+Matches any single digit character from 0 to 9.
+
++:
+A quantifier that means "one or more".
+Ensures the string contains at least one digit and may contain more.
+
+\\:
+In Java, the backslash (\) is an escape character.
+To use a literal backslash in a regex, you need to double it (\\).
+
+What \\d+ Means:
+Matches a string of one or more digits (0-9).
+Examples of matching strings:
+"1"
+"123"
+"987654321"
+
+How It Is Used:
+
+String str = "12345";
+System.out.println(str.matches("\\d+")); // true, because it contains only digits
+
+String str2 = "123a45";
+System.out.println(str2.matches("\\d+")); // false, because of the letter 'a'
+
+Key Notes:
+Entire String Match: The matches() method checks the whole string. If there’s any non-digit character, it returns false.
+Common Use Cases:
+->Validating numeric strings.
+->Ensuring input matches specific patterns, such as dates or phone numbers.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" numeric? : "+isNumeric(str1));
+        System.out.println("is "+str2+" numeric? : "+isNumeric(str2));
+    }
+    static boolean isNumeric(String str)
+    {
+       for (char ch : str.toCharArray())
+       {
+           if (!Character.isDigit(ch))
+           {
+               return false;
+           }
+       }
+       return true;
+    }
+}
+
+Output : 
+
+Enter the first string
+12345
+Enter the second string
+123a5
+is 12345 numeric? : true
+is 123a5 numeric? : false
+
+//How It Works:
+1. Input String:
+The method takes a String input, str.
+
+2. Convert String to Character Array:
+str.toCharArray() converts the string into a character array.
+For example, if str = "123", the array will be ['1', '2', '3'].
+
+3. Iterate Through Each Character:
+The for loop iterates through each character in the array.
+
+4. Check Each Character:
+Character.isDigit(ch) checks if the character ch is a digit (0-9).
+If any character is not a digit, the condition !Character.isDigit(ch) becomes true, and the method immediately returns false.
+
+5. Return True If All Are Digits:
+If the loop completes without encountering a non-digit character, the method returns true, indicating that all characters in the string are digits.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2 = sc.nextLine();
+        System.out.println("is "+str1+" numeric? : "+isNumeric(str1));
+        System.out.println("is "+str2+" numeric? : "+isNumeric(str2));
+    }
+    static boolean isNumeric(String str)
+    {
+       try
+       {
+           Integer.parseInt(str);
+           return true;
+       }
+       catch (Exception ex)
+       {
+           return false;
+       }
+    }
+}
+
+Output : 
+
+Enter the first string
+12345
+Enter the second string
+123a5
+is 12345 numeric? : true
+is 123a5 numeric? : false
