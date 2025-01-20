@@ -1,0 +1,58 @@
+/* Write a program to check if any string starts with "A" from a list using anyMatch() *\
+
+Here’s a Java 8 program to check if any string in a list starts with "A" using anyMatch():
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckIfAnyStartsWithA {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "kiwi", "cherry", "avocado");
+
+        // Using anyMatch() to check if any string starts with "A"
+        boolean anyStartsWithA = words.stream()
+                                      .anyMatch(word -> word.startsWith("A"));
+
+        System.out.println("Any word starts with 'A': " + anyStartsWithA);
+    }
+}
+Output:
+Any word starts with 'A': true
+
+Explanation:
+stream(): Converts the list into a stream.
+anyMatch(word -> word.startsWith("A")): Checks if any string in the stream starts with the letter "A".
+true or false: Returns true if any word starts with "A", otherwise false.
+
+-----------------------------------------------------------------(without Java 8)-----------------------------------------------------------------------------------------------------
+
+
+Here’s how you can check if any string in a list starts with "A" without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckIfAnyStartsWithATraditional {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "kiwi", "cherry", "avocado");
+
+        // Using a traditional for-each loop to check if any string starts with "A"
+        boolean anyStartsWithA = false;
+        for (String word : words) {
+            if (word.startsWith("A")) {
+                anyStartsWithA = true;
+                break;  // Exit loop early if a match is found
+            }
+        }
+
+        System.out.println("Any word starts with 'A': " + anyStartsWithA);
+    }
+}
+Output:
+Any word starts with 'A': true
+
+Explanation:
+Use a for-each loop to iterate through each string in the list.
+Check if the string starts with the letter "A" using startsWith("A").
+If a match is found, set anyStartsWithA to true and exit the loop early with break.
+Finally, print the result.
