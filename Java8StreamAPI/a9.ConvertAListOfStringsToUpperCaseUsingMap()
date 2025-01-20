@@ -1,0 +1,84 @@
+/* Write a program to convert a list of strings to uppercase using map() *\
+
+Here’s a Java 8 program that converts a list of strings to uppercase using the map() method:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ConvertToUpperCase {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "cherry");
+
+        // Using map() to convert strings to uppercase
+        List<String> upperCaseWords = words.stream()
+                                           .map(String::toUpperCase)
+                                           .collect(Collectors.toList());
+
+        System.out.println("Uppercase words: " + upperCaseWords);
+    }
+}
+Output:
+Uppercase words: [APPLE, BANANA, CHERRY]
+
+Explanation:
+stream(): Converts the list of strings into a stream.
+map(String::toUpperCase): Transforms each string to its uppercase equivalent.
+collect(Collectors.toList()): Collects the transformed strings into a new list.
+
+-----------------------------------------------------------------(Without Java8)---------------------------------------------------------------------------------------------------------------
+
+Here’s how you can convert a list of strings to uppercase without using Java 8 features:
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ConvertToUpperCaseTraditional {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "cherry");
+        List<String> upperCaseWords = new ArrayList<>();
+
+        // Using a traditional loop to convert strings to uppercase
+        for (String word : words) {
+            upperCaseWords.add(word.toUpperCase());
+        }
+
+        System.out.println("Uppercase words: " + upperCaseWords);
+    }
+}
+Output: 
+Uppercase words: [APPLE, BANANA, CHERRY]
+
+
+Here’s how you can convert a list of strings to uppercase without using Java 8 features:
+
+java
+Copy
+Edit
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ConvertToUpperCaseTraditional {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "cherry");
+        List<String> upperCaseWords = new ArrayList<>();
+
+        // Using a traditional loop to convert strings to uppercase
+        for (String word : words) {
+            upperCaseWords.add(word.toUpperCase());
+        }
+
+        System.out.println("Uppercase words: " + upperCaseWords);
+    }
+}
+Output:
+less
+Copy
+Edit
+Uppercase words: [APPLE, BANANA, CHERRY]
+Explanation:
+Create a new ArrayList (upperCaseWords) to store the uppercase strings.
+Use a for-each loop to iterate through the original list.
+Convert each string to uppercase using toUpperCase() and add it to the new list.
