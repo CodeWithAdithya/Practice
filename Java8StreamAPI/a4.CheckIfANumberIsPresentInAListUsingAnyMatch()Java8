@@ -1,0 +1,50 @@
+/* Write a program to check if a number is present in a list using anyMatch() *\
+
+Using anyMatch() (Java 8)
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckNumberWithAnyMatch {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        int target = 3;
+
+        // Using anyMatch() to check if the number is present
+        boolean isPresent = numbers.stream().anyMatch(num -> num == target);
+
+        System.out.println("Is the number " + target + " present? " + isPresent);
+    }
+}
+Output:
+Is the number 3 present? true
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(Without Java 8)
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckNumberWithoutJava8 {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        int target = 3;
+
+        // Using a traditional for-each loop to check if the number is present
+        boolean isPresent = false;
+        for (Integer number : numbers) {
+            if (number == target) {
+                isPresent = true;
+                break;
+            }
+        }
+
+        System.out.println("Is the number " + target + " present? " + isPresent);
+    }
+}
+Output:
+Is the number 3 present? true
+
+Explanation:
+Using anyMatch(): The stream() processes the list, and anyMatch() checks if any element matches the condition num == target.
+Without Java 8: A for-each loop iterates over the list, and a condition (if) checks for the presence of the target number. The loop exits early (break) if the number is found.
