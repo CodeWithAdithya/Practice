@@ -26,6 +26,7 @@ stream(): Converts the list of integers into a stream.
 distinct(): Filters out duplicate elements in the stream.
 collect(Collectors.toList()): Collects the unique elements into a new list.
 
+
 -------------------------------------------------------------------(Without java 8)--------------------------------------------------------------------------------------------------------
 
 
@@ -61,6 +62,31 @@ Use a HashSet (seen) to track numbers that have already been added.
 Loop through the list, and for each number, check if it is in the HashSet.
 If not, add it to both the HashSet and the result list (uniqueNumbers).
 
+
+
+
+                                                                    (or)
+
+
+
+public class RemoveDuplicatesTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+       Set<Integer> set = new HashSet<>();
+
+       for (Integer i : list)
+       {
+           set.add(i);
+       }
+        System.out.println(set);
+            }
+        }
+
+        System.out.println("List without duplicates: " + uniqueNumbers);
+    }
+}
+Output:
+List without duplicates: [1, 2, 3, 4, 5]
 
 --------------------------------------------------------------------------------(without set)---------------------------------------------------------------------------------------------
 
