@@ -1,0 +1,83 @@
+/* Implement a program to find the average of a list of numbers using streams *\
+
+Here’s a Java 8 program that finds the average of a list of numbers using streams:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class AverageOfNumbers {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
+
+        // Using streams to find the average
+        double average = numbers.stream()
+                                 .mapToInt(Integer::intValue)  // Convert to IntStream
+                                 .average()                    // Calculate average
+                                 .orElse(0.0);                 // Default value if no numbers
+
+        System.out.println("Average: " + average);
+    }
+}
+Output:
+Average: 30.0
+
+
+Here’s a Java 8 program that finds the average of a list of numbers using streams:
+
+java
+Copy
+Edit
+import java.util.Arrays;
+import java.util.List;
+
+public class AverageOfNumbers {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
+
+        // Using streams to find the average
+        double average = numbers.stream()
+                                 .mapToInt(Integer::intValue)  // Convert to IntStream
+                                 .average()                    // Calculate average
+                                 .orElse(0.0);                 // Default value if no numbers
+
+        System.out.println("Average: " + average);
+    }
+}
+Output:
+Average: 30.0
+
+Explanation:
+stream(): Converts the list into a stream.
+mapToInt(Integer::intValue): Converts the stream of Integer objects into an IntStream to work with primitive int values.
+average(): Computes the average of the numbers in the stream.
+orElse(0.0): Provides a default value (0.0) if the stream is empty.
+
+-------------------------------------------------------------------(without java 8)----------------------------------------------------------------------------------------------------
+
+Here’s how you can find the average of a list of numbers without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class AverageOfNumbersTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
+
+        // Calculate the sum of the numbers
+        int sum = 0;
+        for (Integer number : numbers) {
+            sum += number;
+        }
+
+        // Calculate the average
+        double average = numbers.isEmpty() ? 0.0 : (double) sum / numbers.size();
+
+        System.out.println("Average: " + average);
+    }
+}
+Output:
+Average: 30.0
+
+Explanation:
+Sum Calculation: Use a for-each loop to iterate over the list and calculate the sum of the numbers.
+Average Calculation: If the list is not empty, divide the sum by the size of the list to get the average. If the list is empty, return 0.0 as the default average.
