@@ -1,0 +1,69 @@
+/* Write a program to find the sum of all elements in a list using reduce() *\
+
+import java.util.Arrays;
+import java.util.List;
+
+public class SumUsingReduce {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using reduce() to calculate the sum
+        int sum = numbers.stream()
+                         .reduce(0, (c, e) -> c + e);
+
+        // Print the sum
+        System.out.println("Sum of all elements: " + sum);
+    }
+}
+Output:
+Sum of all elements:15
+
+stream(): Converts the list to a stream.
+reduce(0, (a, b) -> a + b): Aggregates the elements of the stream, starting with the identity value 0, and sums up all the numbers.
+The result is stored in the variable sum.
+------------------------------------------------(or)--------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+import java.util.List;
+
+public class SumUsingReduce {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using reduce() to calculate the sum
+        int sum = numbers.stream()
+                         .reduce(0, Integer :: sum);
+
+        // Print the sum
+        System.out.println("Sum of all elements: " + sum);
+    }
+}
+Output:
+Sum of all elements:15
+
+--------------------------------------------------------(without Java 8)-------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+import java.util.List;
+
+public class SumWithoutJava8 {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using a traditional for-each loop to calculate the sum
+        int sum = 0;
+        for (Integer number : numbers) {
+            sum += number;
+        }
+
+        // Print the sum
+        System.out.println("Sum of all elements: " + sum);
+    }
+}
+Output:
+
+Sum of all elements: 15
+
+The program iterates through the list using a traditional for-each loop.
+Each number is added to the variable sum, which is initialized to 0.
+The final value of sum is printed as the sum of all elements.
