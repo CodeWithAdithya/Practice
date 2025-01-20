@@ -1,0 +1,56 @@
+/* Write a Java 8 program to convert an array of integers to a list using stream *\
+
+Here’s a Java 8 program to convert an array of integers to a list using streams:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ArrayToList {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // Convert array to list using streams
+        List<Integer> numberList = Arrays.stream(numbers)   // Create an IntStream
+                                         .boxed()           // Convert IntStream to Stream<Integer>
+                                         .toList();         // Collect as a List
+
+        System.out.println("List: " + numberList);
+    }
+}
+Output:
+List: [1, 2, 3, 4, 5]
+
+Explanation:
+Arrays.stream(numbers): Converts the array to an IntStream.
+boxed(): Converts the primitive IntStream into a stream of Integer objects.
+toList(): Collects the stream elements into a List.
+
+----------------------------------------------------------(without Java 8)-------------------------------------------------------------------------------------------------------------------
+
+  Here’s how you can convert an array of integers to a list without using Java 8 features:
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayToListTraditional {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // Convert array to list using a traditional loop
+        List<Integer> numberList = new ArrayList<>();
+        for (int number : numbers) {
+            numberList.add(number);
+        }
+
+        System.out.println("List: " + numberList);
+    }
+}
+Output:
+List: [1, 2, 3, 4, 5]
+
+Explanation:
+Create an empty ArrayList to store the integers.
+Use a for-each loop to iterate through the array.
+Add each integer from the array to the ArrayList.
+Print the resulting list.
+
