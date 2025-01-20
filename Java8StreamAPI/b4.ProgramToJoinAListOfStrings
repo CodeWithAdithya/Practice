@@ -1,0 +1,59 @@
+/* Write a program to join a list of strings using Java 8 streams *\
+
+Here’s a Java 8 program that joins a list of strings into a single string using streams:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class JoinStrings {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("Java", "is", "fun");
+
+        // Using join() from Collectors to join strings with a space separator
+        String joinedString = words.stream()
+                                   .collect(Collectors.joining(" "));
+
+        System.out.println("Joined string: " + joinedString);
+    }
+}
+Output:
+Joined string: Java is fun
+
+Explanation:
+stream(): Converts the list into a stream.
+Collectors.joining(" "): Joins the elements of the stream into a single string, with a space (" ") as the delimiter.
+The result is stored in the variable joinedString and printed.
+
+------------------------------------------------------------(without Java 8)------------------------------------------------------------------------------------------------------------------
+
+
+Here’s how you can join a list of strings into a single string without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class JoinStringsTraditional {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("Java", "is", "fun");
+
+        // Using a StringBuilder to join strings with a space separator
+        StringBuilder joinedString = new StringBuilder();
+        for (int i = 0; i < words.size(); i++) {
+            joinedString.append(words.get(i));
+            if (i < words.size() - 1) {
+                joinedString.append(" ");  // Add space between words
+            }
+        }
+
+        System.out.println("Joined string: " + joinedString.toString());
+    }
+}
+Output:
+Joined string: Java is fun
+
+Explanation:
+Use a StringBuilder to build the final string.
+Iterate through the list of strings using a for loop.
+Append each string to the StringBuilder, adding a space between words (except after the last word).
+Convert the StringBuilder to a string and print the result.
