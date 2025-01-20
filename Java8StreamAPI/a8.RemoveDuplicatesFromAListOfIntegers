@@ -1,0 +1,101 @@
+/* Write a Java 8 program to remove duplicates from a list of integers *\
+
+Here’s a Java 8 program that removes duplicates from a list of integers using the distinct() method:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+
+        // Using distinct() to remove duplicates
+        List<Integer> uniqueNumbers = numbers.stream()
+                                             .distinct()
+                                             .collect(Collectors.toList());
+
+        System.out.println("List without duplicates: " + uniqueNumbers);
+    }
+}
+Output:
+List without duplicates: [1, 2, 3, 4, 5]
+
+Explanation:
+stream(): Converts the list of integers into a stream.
+distinct(): Filters out duplicate elements in the stream.
+collect(Collectors.toList()): Collects the unique elements into a new list.
+
+-------------------------------------------------------------------(Without java 8)--------------------------------------------------------------------------------------------------------
+
+
+Here’s a program to remove duplicates from a list of integers without using Java 8 features:
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class RemoveDuplicatesTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+        List<Integer> uniqueNumbers = new ArrayList<>();
+        Set<Integer> seen = new HashSet<>();
+
+        // Using a traditional loop and a HashSet to remove duplicates
+        for (Integer number : numbers) {
+            if (!seen.contains(number)) {
+                uniqueNumbers.add(number);
+                seen.add(number);
+            }
+        }
+
+        System.out.println("List without duplicates: " + uniqueNumbers);
+    }
+}
+Output:
+List without duplicates: [1, 2, 3, 4, 5]
+Explanation:
+Use a HashSet (seen) to track numbers that have already been added.
+Loop through the list, and for each number, check if it is in the HashSet.
+If not, add it to both the HashSet and the result list (uniqueNumbers).
+
+
+--------------------------------------------------------------------------------(without set)---------------------------------------------------------------------------------------------
+
+
+Here’s a program to remove duplicates from a list of integers without using Java 8 features or a Set:
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class RemoveDuplicatesWithoutSet {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+        List<Integer> uniqueNumbers = new ArrayList<>();
+
+        // Using a traditional loop to remove duplicates
+        for (Integer number : numbers) {
+            if (!uniqueNumbers.contains(number)) {
+                uniqueNumbers.add(number);
+            }
+        }
+
+        System.out.println("List without duplicates: " + uniqueNumbers);
+    }
+}
+Output:
+List without duplicates: [1, 2, 3, 4, 5]
+Explanation:
+Use an ArrayList (uniqueNumbers) to store unique elements.
+For each element in the original list, check if it is already in uniqueNumbers using the contains() method.
+If not, add it to uniqueNumbers. This avoids duplicates.
+
+
+
+
+
+
+
