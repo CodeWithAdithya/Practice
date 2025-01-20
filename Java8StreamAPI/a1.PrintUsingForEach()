@@ -1,0 +1,40 @@
+/* Write a program to print a list of numbers using Java 8 forEach() and without java 8 *\
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Java8ForEachExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using Java 8 forEach() with Lambda
+        numbers.forEach(number -> System.out.println(number));
+    }
+}
+Output:
+1
+2
+3
+4
+5
+-------------------------------------------(Without JAVA 8)------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+import java.util.List;
+
+public class TraditionalForEachExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using traditional for-each loop
+        for (Integer number : numbers) {
+            System.out.println(number);
+        }
+    }
+}
+Output:
+1
+2
+3
+4
+5
