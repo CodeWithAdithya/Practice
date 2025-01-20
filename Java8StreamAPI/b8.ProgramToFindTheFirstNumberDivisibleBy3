@@ -1,0 +1,86 @@
+/* Write a Java 8 program to find the first number divisible by 3 in a list *\
+
+Here’s a Java 8 program to find the first number divisible by 3 in a list using streams:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+public class FirstDivisibleByThree {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
+
+        // Using stream to find the first number divisible by 3
+        Optional<Integer> firstDivisibleByThree = numbers.stream()
+                                                         .filter(num -> num % 3 == 0)
+                                                         .findFirst();
+
+        // Print the result
+        firstDivisibleByThree.ifPresent(num -> System.out.println("First number divisible by 3: " + num));
+    }
+}
+Output:
+First number divisible by 3: 30
+
+
+                                                        (or)
+
+
+public class FirstDivisibleByThree {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
+
+        int firstDivisibleByThree = list.stream()
+               .filter(n->(n%3==0))
+               .findFirst().orElse(-1);
+
+        System.out.println("First number divisible by 3: " + firstDivisibleByThree);
+         
+    }
+}
+Output:
+First number divisible by 3: 30
+
+Explanation:
+stream(): Converts the list into a stream.
+filter(num -> num % 3 == 0): Filters numbers that are divisible by 3.
+findFirst(): Retrieves the first element in the stream that satisfies the condition.
+ifPresent(): If a number is found, it prints it; otherwise, nothing is printed.
+
+----------------------------------------------------------------------(without java 8)----------------------------------------------------------------------------------------------------
+
+
+Here’s how you can find the first number divisible by 3 in a list without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class FirstDivisibleByThreeTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
+
+        // Using a traditional for-each loop to find the first number divisible by 3
+        Integer firstDivisibleByThree = null;
+        for (Integer number : numbers) {
+            if (number % 3 == 0) {
+                firstDivisibleByThree = number;
+                break;  // Exit the loop as soon as the first number divisible by 3 is found
+            }
+        }
+
+        if (firstDivisibleByThree != null) {
+            System.out.println("First number divisible by 3: " + firstDivisibleByThree);
+        } else {
+            System.out.println("No number divisible by 3 found");
+        }
+    }
+}
+Output:
+First number divisible by 3: 30
+
+Explanation:
+for-each loop: Iterates through each number in the list.
+if (number % 3 == 0): Checks if the number is divisible by 3.
+If a number divisible by 3 is found, it’s stored in firstDivisibleByThree, and the loop breaks immediately using break.
+Finally, it prints the first number divisible by 3, or a message if none is found.
+
