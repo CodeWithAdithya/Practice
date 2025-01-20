@@ -1,0 +1,57 @@
+/* Write a program to check if all numbers in a list are even using streams *\
+
+Here’s a Java 8 program to check if all numbers in a list are even using streams:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckAllEven {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(2, 4, 6, 8, 10);
+
+        // Using allMatch() to check if all numbers are even
+        boolean allEven = numbers.stream()
+                                 .allMatch(num -> num % 2 == 0);
+
+        System.out.println("All numbers are even: " + allEven);
+    }
+}
+Output:
+All numbers are even: true
+
+Explanation:
+stream(): Converts the list into a stream.
+allMatch(num -> num % 2 == 0): Checks if all numbers in the stream satisfy the condition (i.e., being even).
+true or false: Returns true if all numbers are even, otherwise false.
+
+-------------------------------------------------------------(Without Java 8)-----------------------------------------------------------------------------------------------------------------
+
+Here’s a traditional Java approach to check if all numbers in a list are even without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckAllEvenTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(2, 4, 6, 8, 10);
+
+        // Using a traditional loop to check if all numbers are even
+        boolean allEven = true;
+        for (Integer number : numbers) {
+            if (number % 2 != 0) {
+                allEven = false;
+                break;
+            }
+        }
+
+        System.out.println("All numbers are even: " + allEven);
+    }
+}
+Output:
+All numbers are even: true
+
+Explanation:
+Use a for-each loop to iterate through the list.
+For each number, check if it is not even (number % 2 != 0).
+If any odd number is found, set allEven to false and exit the loop using break.
+Print the result based on the allEven flag.
