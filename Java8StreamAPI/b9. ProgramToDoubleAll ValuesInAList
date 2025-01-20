@@ -1,0 +1,57 @@
+/* Create a program to double all values in a list using streams *\
+
+Here’s a Java 8 program that doubles all values in a list using streams:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class DoubleValues {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using map() to double all values in the list
+        List<Integer> doubledNumbers = numbers.stream()
+                                               .map(num -> num * 2)
+                                               .collect(Collectors.toList());
+
+        System.out.println("Doubled values: " + doubledNumbers);
+    }
+}
+Output:
+Doubled values: [2, 4, 6, 8, 10]
+
+Explanation:
+stream(): Converts the list into a stream.
+map(num -> num * 2): Doubles each value in the list.
+collect(Collectors.toList()): Collects the doubled values into a new list.
+
+----------------------------------------------------------------(without java8)-----------------------------------------------------------------------------------------------------------
+
+Here’s how you can double all values in a list without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+public class DoubleValuesTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> doubledNumbers = new ArrayList<>();
+
+        // Using a traditional for-each loop to double each value
+        for (Integer number : numbers) {
+            doubledNumbers.add(number * 2);
+        }
+
+        System.out.println("Doubled values: " + doubledNumbers);
+    }
+}
+
+Output:
+Doubled values: [2, 4, 6, 8, 10]
+
+Explanation:
+Use a for-each loop to iterate through each number in the list.
+For each number, multiply it by 2 and add the result to a new list (doubledNumbers).
+Finally, print the list with the doubled values.
