@@ -1,0 +1,90 @@
+/* Write a Java 8 program to count the number of words in a sentence using split() *\
+
+Here’s a Java 8 program to count the number of words in a sentence using split():
+
+public class WordCount {
+    public static void main(String[] args) {
+        String sentence = "Java 8 makes coding more fun and efficient";
+
+        // Count words using split()
+        long wordCount = Arrays.stream(sentence.split("\\s+")).count();
+
+        System.out.println("Number of words: " + wordCount);
+    }
+}
+Output:
+Number of words: 8
+
+Explanation:
+sentence.split("\\s+"): Splits the sentence into an array of words based on one or more spaces.
+Arrays.stream(): Converts the array into a stream.
+count(): Counts the elements in the stream, i.e., the number of words.
+
+------If you meant to exclude numbers like "8", you can filter them out:---------------
+
+Exclude Numbers:
+
+import java.util.Arrays;
+
+public class WordCountExcludeNumbers {
+    public static void main(String[] args) {
+        String sentence = "Java 8 makes coding more fun and efficient";
+
+        // Count words excluding numbers
+        long wordCount = Arrays.stream(sentence.split("\\s+"))
+                               .filter(word -> !word.matches("\\d+")) // Exclude words that are only digits
+                               .count();
+
+        System.out.println("Number of words (excluding numbers): " + wordCount);
+    }
+}
+Output:
+Number of words (excluding numbers): 7
+
+
+-----------------------------------------------------------(Without java 8)------------------------------------------------------------------------------------------------------------
+
+
+  
+public class WordCountExcludeNumbers {
+    public static void main(String[] args) {
+        String sentence  = "Java 8 makes coding more fun and efficient";
+
+       String[] sentenceArray = sentence.split(" ");
+        System.out.println("Number of words: " +sentenceArray.length);
+    }
+}
+Output:
+Number of words: 8
+
+
+------If you meant to exclude numbers like "8", you can filter them out:---------------
+
+Exclude Numbers:
+
+public class WordCountTraditional {
+    public static void main(String[] args) {
+        String sentence = "Java 8 makes coding more fun and efficient";
+
+        // Split the sentence into words using split()
+        String[] words = sentence.split("\\s+");
+
+        // Count the words
+        int wordCount = 0;
+        for (String word : words) {
+            if (!word.matches("\\d+")) { // Exclude numbers
+                wordCount++;
+            }
+        }
+
+        System.out.println("Number of words (excluding numbers): " + wordCount);
+    }
+}
+Output:
+Number of words (excluding numbers): 7
+
+Explanation:
+split("\\s+"): Splits the sentence into an array of words based on whitespace.
+for loop: Iterates through the array of words.
+!word.matches("\\d+"): Skips words that are purely numeric.
+Increment wordCount only for valid words.
