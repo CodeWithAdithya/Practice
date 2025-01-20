@@ -1,0 +1,55 @@
+/* Write a Java 8 program to convert a list of integers to a list of their squares *\
+
+Here’s a Java 8 program that converts a list of integers to a list of their squares using the map() method:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ConvertToSquares {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using map() to convert integers to their squares
+        List<Integer> squares = numbers.stream()
+                                       .map(num -> num * num)
+                                       .collect(Collectors.toList()); //use asList() if you have JDK16
+
+        System.out.println("List of squares: " + squares);
+    }
+}
+Output:
+List of squares: [1, 4, 9, 16, 25]
+Explanation:
+stream(): Converts the list of integers to a stream.
+map(num -> num * num): Transforms each element of the stream by squaring it.
+collect(Collectors.toList()): Collects the transformed elements into a new list.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Here’s how you can convert a list of integers to a list of their squares without using Java 8 features:
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ConvertToSquaresTraditional {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> squares = new ArrayList<>();
+
+        // Using a traditional for-each loop to calculate squares
+        for (Integer number : numbers) {
+            squares.add(number * number);
+        }
+
+        System.out.println("List of squares: " + squares);
+    }
+}
+Output:
+List of squares: [1, 4, 9, 16, 25]
+Explanation:
+Create a new list, squares, to store the squared values.
+Use a for-each loop to iterate through the original list.
+Square each number and add it to the squares list.
