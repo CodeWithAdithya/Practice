@@ -1,0 +1,51 @@
+/* Write a Java 8 program to print a list of names with more than 5 characters *\
+
+Here’s a Java 8 program to print a list of names that have more than 5 characters:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class NamesWithMoreThanFiveChars {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
+
+        // Using filter() to get names with more than 5 characters
+        names.stream()
+             .filter(name -> name.length() > 5)
+             .forEach(System.out::println);
+    }
+}
+Output:
+Charlie
+
+Explanation:
+stream(): Converts the list of names into a stream.
+filter(name -> name.length() > 5): Filters the names that have more than 5 characters.
+forEach(System.out::println): Prints each name that meets the condition.
+
+--------------------------------------------------------------------(Witout Java 8)---------------------------------------------------------------------------------------------------------
+
+Here’s how you can print a list of names with more than 5 characters without using Java 8 features:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class NamesWithMoreThanFiveCharsTraditional {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
+
+        // Using a traditional for-each loop to print names with more than 5 characters
+        for (String name : names) {
+            if (name.length() > 5) {
+                System.out.println(name);
+            }
+        }
+    }
+}
+Output:
+Charlie
+
+Explanation:
+Use a for-each loop to iterate over each name in the list.
+Check if the length of each name is greater than 5 characters.
+If the condition is met, print the name.
