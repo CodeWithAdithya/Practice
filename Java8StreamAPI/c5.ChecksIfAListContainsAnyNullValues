@@ -1,0 +1,50 @@
+/* Create a program that checks if a list contains any null values *\
+
+Using Java 8 Streams:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckNullValues {
+    public static void main(String[] args) {
+        List<String> items = Arrays.asList("Java", null, "Spring", "Boot");
+
+        // Check if the list contains any null values
+        boolean containsNull = items.stream().anyMatch(item -> item == null);
+
+        System.out.println("List contains null values: " + containsNull);
+    }
+}
+Output:
+List contains null values: true
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Without Java 8:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckNullValuesTraditional {
+    public static void main(String[] args) {
+        List<String> items = Arrays.asList("Java", null, "Spring", "Boot");
+
+        // Check for null values using a loop
+        boolean containsNull = false;
+        for (String item : items) {
+            if (item == null) {
+                containsNull = true;
+                break;
+            }
+        }
+
+        System.out.println("List contains null values: " + containsNull);
+    }
+}
+
+Output:
+List contains null values: true
+
+Explanation:
+Java 8 Streams: Use anyMatch() to check if any element in the list is null.
+Without Java 8: Use a for-each loop to iterate through the list and check if any element is null. Exit the loop early if a null is found.
+
