@@ -1,0 +1,55 @@
+/* Implement a program that generates a list of even numbers using Stream.iterate() *\
+
+Here’s a Java 8 program to generate a list of even numbers using Stream.iterate():
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class EvenNumbersList {
+    public static void main(String[] args) {
+        // Generate a list of the first 10 even numbers
+        List<Integer> evenNumbers = Stream.iterate(2, n -> n + 2) // Start with 2, increment by 2
+                                           .limit(10)            // Limit the stream to 10 numbers
+                                           .collect(Collectors.toList()); // Collect into a list
+
+        System.out.println("Even numbers: " + evenNumbers);
+    }
+}
+Output:
+Even numbers: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+Explanation:
+Stream.iterate(2, n -> n + 2): Starts from 2 and generates the next even number by adding 2.
+limit(10): Limits the stream to the first 10 numbers.
+collect(Collectors.toList()): Collects the generated numbers into a list.
+The program prints the list of even numbers.
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+Here’s how to generate a list of even numbers without using Java 8 features:
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EvenNumbersListTraditional {
+    public static void main(String[] args) {
+        List<Integer> evenNumbers = new ArrayList<>();
+
+        // Generate the first 10 even numbers using a loop
+        for (int i = 1; i <= 10; i++) {
+            evenNumbers.add(i * 2); // Multiply each index by 2 to get even numbers
+        }
+
+        System.out.println("Even numbers: " + evenNumbers);
+    }
+}
+Output:
+Even numbers: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+Explanation:
+Use a loop: Iterate from 1 to 10 (representing the count of even numbers required).
+Calculate even numbers: Multiply the loop index i by 2 to get the even numbers.
+Add to list: Use evenNumbers.add() to store each result in the list.
+Print the list of even numbers.
