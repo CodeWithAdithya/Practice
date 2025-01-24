@@ -1,0 +1,81 @@
+/* Write a Java 8 program to split a list of numbers into two groups: even and odd *\
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class SplitEvenOddWithStream {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Split the list into two groups: even and odd using partitioningBy
+        Map<Boolean, List<Integer>> evenOddGroups = numbers.stream()
+                                                           .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+        // Get the even and odd numbers from the map
+        List<Integer> evenNumbers = evenOddGroups.get(true);
+        List<Integer> oddNumbers = evenOddGroups.get(false);
+
+        System.out.println("Even Numbers: " + evenNumbers);
+        System.out.println("Odd Numbers: " + oddNumbers);
+    }
+}
+Output:
+Even Numbers: [2, 4, 6, 8, 10]
+Odd Numbers: [1, 3, 5, 7, 9]
+
+
+Explanation:
+Stream the List: The numbers.stream() creates a stream from the list of numbers.
+Partitioning Using partitioningBy(): We use Collectors.partitioningBy() to split the numbers into two groups. This collector uses a predicate (n -> n % 2 == 0) to check if each number is even. It returns a Map<Boolean, List<Integer>>, where the key true corresponds to the even numbers and false to the odd numbers.
+Retrieve Even and Odd Numbers: The Map stores the even numbers under the key true and odd numbers under the key false.
+Print the Results: We print both the even and odd numbers.
+
+Notes:
+partitioningBy() is a special case of groupingBy() that splits the data into two groups based on the boolean result of the predicate.
+This approach efficiently splits the numbers into two groups based on their evenness or oddness.
+
+
+-----------------------------------------------------------------------(without java8)--------------------------------------------------------------------------------------------------
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SplitEvenOddWithoutJava8 {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);  // Java 9+ List.of(), use ArrayList for older versions.
+
+        // Lists to hold even and odd numbers
+        List<Integer> evenNumbers = new ArrayList<>();
+        List<Integer> oddNumbers = new ArrayList<>();
+
+        // Iterate through the list and separate even and odd numbers
+        for (Integer number : numbers) {
+            if (number % 2 == 0) {
+                evenNumbers.add(number);  // Add even numbers to evenNumbers list
+            } else {
+                oddNumbers.add(number);   // Add odd numbers to oddNumbers list
+            }
+        }
+
+        // Print the results
+        System.out.println("Even Numbers: " + evenNumbers);
+        System.out.println("Odd Numbers: " + oddNumbers);
+    }
+}
+
+Output:
+Even Numbers: [2, 4, 6, 8, 10]
+Odd Numbers: [1, 3, 5, 7, 9]
+
+
+Explanation:
+Create Lists for Even and Odd Numbers: We create two ArrayLists, evenNumbers and oddNumbers, to hold the even and odd numbers, respectively.
+Iterate Through the List: We use a for loop to iterate over each number in the list.
+Check Even or Odd: For each number, we check if it is even (number % 2 == 0). If it is, we add it to the evenNumbers list; otherwise, we add it to the oddNumbers list.
+Print the Results: After separating the numbers, we print the lists of even and odd numbers.
+
+Notes:
+This approach uses basic for loop iteration and conditional checks to separate the even and odd numbers.
+The List.of() method is used here for convenience but you can use an ArrayList if you’re using a version of Java prior to 9.
