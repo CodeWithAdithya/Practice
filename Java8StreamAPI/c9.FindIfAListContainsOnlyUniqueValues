@@ -1,0 +1,62 @@
+/* Implement a program to find if a list contains only unique values using streams *\
+
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class UniqueValuesCheck {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+        // Check if all elements are unique by comparing the list's size with the size of a set
+        boolean allUnique = numbers.stream()
+                                   .collect(Collectors.toSet()) // Convert the list to a set
+                                   .size() == numbers.size();    // If sizes match, all elements are unique
+
+        System.out.println("List contains only unique values: " + allUnique);
+    }
+}
+Output:
+List contains only unique values: true
+
+
+  
+Explanation:
+Stream the List: We create a stream from the numbers list.
+Convert to Set: We convert the stream to a Set using Collectors.toSet(). A Set automatically eliminates duplicates.
+Size Comparison: If the size of the set equals the size of the original list, then all elements in the list were unique (because no duplicates are allowed in a set).
+Boolean Result: We store the result of the comparison in allUnique, which will be true if all elements are unique, otherwise false.
+
+
+-------------------------------------------------------------------------(without java 8)-----------------------------------------------------------------------------------------------------
+
+import java.util.HashSet;
+import java.util.List;
+
+public class UniqueValuesCheckManual {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);  // Java 9+ for List.of() method. Use ArrayList for older versions.
+
+        // Create a HashSet to store elements
+        HashSet<Integer> uniqueSet = new HashSet<>();
+
+        // Check if each element is already in the set
+        for (Integer num : numbers) {
+            if (!uniqueSet.add(num)) { // If add() returns false, it's a duplicate
+                System.out.println("List contains duplicate values.");
+                return;
+            }
+        }
+
+        System.out.println("List contains only unique values.");
+    }
+}
+
+Output:
+List contains only unique values: true
+
+Explanation:
+Using HashSet: A HashSet is used because it does not allow duplicate elements. If an element is already present in the set, the add() method will return false.
+Loop Through List: We iterate through each element of the list and attempt to add it to the HashSet.
+Check for Duplicates: If add() returns false, it means the element was already in the set, indicating a duplicate.
+Output: The program prints whether the list contains only unique values or if duplicates were found.
