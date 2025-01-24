@@ -1,0 +1,72 @@
+/* Write a program to find the first non-null value in a list using Optional *\
+
+Here’s a program to find the first non-null value in a list using Optional in Java:
+
+import java.util.*;
+
+public class FirstNonNullFinder {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList(null, null, "apple", "banana", "cherry");
+
+        // Find the first non-null value
+        Optional<String> firstNonNull = strings.stream()
+                                               .filter(Objects::nonNull)
+                                               .findFirst();
+
+        // Print the result
+        firstNonNull.ifPresent(System.out::println);
+    }
+}
+Output:
+apple
+
+This uses filter(Objects::nonNull) to exclude null values and findFirst() to get the first non-null value.
+
+
+
+                                                                                                            or
+
+import java.util.*;
+
+public class FirstNonNullFinder {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList(null, null, "apple", "banana", "cherry");
+
+        // Find the first non-null value using lambda
+        String firstNonNull = strings.stream()
+                                               .filter(s -> s != null)
+                                               .findFirst();
+
+        // Print the result
+       System.out.println(firstNonNull);
+    }
+}
+Output:
+apple
+
+This replaces Objects::nonNull with a lambda s -> s != null for filtering.
+
+---------------------------------------------------------------------(without java8)-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+
+public class FirstNonNullFinder {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList(null, null, "apple", "banana", "cherry");
+
+        String firstNonNull = null;
+        for (String s : strings) {
+            if (s != null) {
+                firstNonNull = s;
+                break;
+            }
+        }
+
+        // Print the result
+        if (firstNonNull != null) {
+            System.out.println(firstNonNull);
+        }
+    }
+}
+Output:
+apple
