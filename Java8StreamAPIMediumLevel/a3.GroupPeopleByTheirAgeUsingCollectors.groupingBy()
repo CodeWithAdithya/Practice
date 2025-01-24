@@ -1,0 +1,58 @@
+/*  Implement a program to group people by their age using Collectors.groupingBy() *\
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ")";
+    }
+}
+
+public class GroupByAge {
+    public static void main(String[] args) {
+        List<Person> people = Arrays.asList(
+                new Person("John", 25),
+                new Person("Alice", 30),
+                new Person("Bob", 25),
+                new Person("David", 30),
+                new Person("Eve", 35)
+        );
+
+        // Group people by age
+        Map<Integer, List<Person>> peopleByAge = people.stream()
+                .collect(Collectors.groupingBy(Person::getAge));
+
+        // Print the grouped result
+       peopleByAge.forEach((k,v)->System.out.println(k +" "+v.stream().map(Person::getName).collect(Collectors.toList())));
+        });
+    }
+}
+Output:
+25 [John, Bob]
+30 [Alice, David]
+35 [Eve]
+
+
+
+This program groups a list of Person objects by their age using Collectors.groupingBy(). Each age acts as a key in the resulting Map,
+and the value is a list of people of that age. The forEach loop iterates over the Map, and for each age, it prints the age (k) and a list of names (v.stream().map(Person::getName)),
+converting the Person objects into their names using a stream. The final result is a clean output of ages and corresponding names.
+
