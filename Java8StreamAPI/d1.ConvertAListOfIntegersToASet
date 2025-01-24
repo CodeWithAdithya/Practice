@@ -1,0 +1,49 @@
+/* Write a program to convert a list of integers to a set using java 8 *\
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class ListToSetWithStream {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 5, 6);
+
+        // Convert List to Set using streams
+        Set<Integer> uniqueNumbers = numbers.stream()
+                                            .collect(Collectors.toSet());
+
+        System.out.println("Set: " + uniqueNumbers);
+    }
+}
+Output:
+Set: [1, 2, 3, 4, 5, 6]
+
+Explanation:
+Stream the List: The numbers.stream() creates a stream from the list of integers.
+Collect to Set: The collect(Collectors.toSet()) operation collects the elements of the stream into a Set. This automatically removes any duplicates, as sets do not allow duplicate elements.
+Print the Set: The resulting set is printed to the console.
+
+------------------------------------------------------(without java 8)-------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.HashSet;
+import java.util.List;
+
+public class ListToSetManual {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 5, 6); // Java 9+ for List.of(), use ArrayList for older versions.
+
+        // Create a HashSet to convert the List to Set
+        HashSet<Integer> uniqueNumbers = new HashSet<>(numbers);
+
+        // Print the Set
+        System.out.println("Set: " + uniqueNumbers);
+    }
+}
+Output:
+Set: [1, 2, 3, 4, 5, 6]
+
+Explanation:
+Using HashSet Constructor: We directly pass the List into the HashSet constructor. The HashSet will automatically remove any duplicates as sets do not allow duplicate elements.
+Printing the Set: The set is then printed, showing the unique elements from the list.
