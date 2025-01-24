@@ -1,0 +1,51 @@
+/* Write a program to sort a list of strings by their length using Java 8 *\
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class StringSorter {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("apple", "banana", "cherry", "date");
+
+        // Sort strings by length using streams
+        List<String> sortedStrings = strings.stream()
+                                            .sorted(Comparator.comparingInt(String::length))
+                                            .collect(Collectors.toList());
+
+        // Print the sorted list
+        sortedStrings.forEach(System.out::println);
+    }
+}
+Output:
+date  
+apple  
+banana  
+cherry
+
+This uses sorted() with Comparator.comparingInt inside a stream pipeline.
+
+
+                                                                           or
+
+
+import java.util.*;
+
+public class StringSorter {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("apple", "banana", "cherry", "date");
+
+        // Sort strings by length using lambda
+        Collections.sort(strings, (s1, s2) -> Integer.compare(s1.length(), s2.length()));
+
+        // Print the sorted list
+        for (String s : strings) {
+            System.out.println(s);
+        }
+    }
+}
+
+Output:
+date  
+apple  
+banana  
+cherry
