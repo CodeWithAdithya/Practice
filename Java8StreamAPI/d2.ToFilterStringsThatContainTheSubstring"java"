@@ -1,0 +1,61 @@
+/*  Implement a program to filter strings that contain the substring "java" *\
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class FilterStringsWithStream {
+    public static void main(String[] args) {
+        List<String> words = List.of("JavaScript", "Python", "Java", "C++", "javaFX", "Ruby");
+
+        // Filter strings that contain the substring "java" (case-sensitive)
+        List<String> javaWords = words.stream()
+                                      .filter(word -> word.contains("java"))
+                                      .collect(Collectors.toList());
+
+        System.out.println("Words containing 'java': " + javaWords);
+    }
+}
+
+Output:
+Words containing 'java': [JavaScript, Java, javaFX]
+
+Explanation:
+Stream the List: The words.stream() creates a stream from the list of words.
+Filter with contains(): We use the filter() method to filter out the strings that contain the substring "java". This method returns a new stream of only the strings that meet the condition.
+Collect the Results: The collect(Collectors.toList()) operation collects the filtered stream into a new list.
+Print the Filtered List: Finally, the filtered list is printed.
+
+----------------------------------------------------------(without java 8)------------------------------------------------------------------------------------------------------------------
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FilterStringsContainingJava {
+    public static void main(String[] args) {
+        List<String> words = new ArrayList<>();
+        words.add("JavaScript");
+        words.add("Python");
+        words.add("Java");
+        words.add("C++");
+        words.add("javaFX");
+        words.add("Ruby");
+
+        // Filter strings that contain the substring "java" (case-sensitive)
+        List<String> javaWords = new ArrayList<>();
+        for (String word : words) {
+            if (word.contains("java")) {
+                javaWords.add(word);
+            }
+        }
+
+        System.out.println("Words containing 'java': " + javaWords);
+    }
+}
+Output:
+Words containing 'java': [JavaScript, Java, javaFX]
+
+Explanation:
+Create List: We create a list of strings that includes words such as "JavaScript", "Python", "Java", etc.
+Filter with contains(): Using a for loop, we iterate through each word in the list and check if it contains the substring "java" using the contains() method, which is case-sensitive.
+Store Filtered Words: If the condition is met, we add the word to a new list javaWords.
+Print the Filtered List: Finally, we print the list of words that contain the substring "java".
