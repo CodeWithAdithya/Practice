@@ -40,6 +40,98 @@ public class ReverseListWithStream {
         System.out.println("Reversed list: " + reversed);
     }
 }
+Output:
+Reversed list: [5, 4, 3, 2, 1]
+
+
+Step-by-Step Breakdown:
+1. IntStream.rangeClosed(1, numbers.size()):
+This creates an IntStream of integers from 1 to the size of the numbers list (in this case, 1 to 5).
+IntStream.rangeClosed(start, end) generates a stream of numbers starting from start and ending at end (inclusive).
+So for numbers.size() = 5, it will generate: 1, 2, 3, 4, 5.
+2. .mapToObj(i -> numbers.get(numbers.size() - i)):
+The .mapToObj() function is used to map each integer from the stream into an object (in this case, an Integer).
+i represents the current number in the stream. For example, for i = 1, it will retrieve the last element in the list, for i = 2, the second-last element, and so on.
+The expression numbers.get(numbers.size() - i) is used to reverse the order:
+numbers.size() gives the total number of elements in the list.
+By subtracting i from the size, you are effectively getting the elements from the end of the list to the beginning.
+For example, if i = 1, it fetches numbers.get(5 - 1) = numbers.get(4) (which is 5 in this case), and for i = 2, it fetches numbers.get(5 - 2) = numbers.get(3) (which is 4).
+3. .collect(Collectors.toList()):
+The collect() operation is used to collect the elements in the stream into a new list.
+Collectors.toList() collects all the elements produced by the stream into a List<Integer>.
+So, the reversed list of elements is created by the time this step completes.
+4. System.out.println("Reversed list: " + reversed);:
+Finally, the reversed list is printed to the console.
+
+
+----------------------------------------------------------------------------------(without java 8)------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class ReverseList {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Reverse the list
+        Collections.reverse(numbers);
+
+        System.out.println("Reversed list: " + numbers);
+    }
+}
+Output : Reversed list: [5, 4, 3, 2, 1]
+
+
+                                                     or 
 
 
 
+The Comparator.reverseOrder() method in Java provides a comparator to sort elements in reverse (descending) order. Here's how you can use it to reverse a list of integers:
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class ReverseListWithComparator {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Sort the list in reverse order using Comparator.reverseOrder()
+        numbers.sort(Comparator.reverseOrder());
+
+        System.out.println("Reversed list: " + numbers);
+    }
+}
+
+
+Output : Reversed list: [5, 4, 3, 2, 1]
+
+                                                             or 
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReverseListManual {
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        // Adding some numbers to the list
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+
+        // Create a new list to store reversed values
+        List<Integer> reversed = new ArrayList<>();
+        
+        // Loop through the original list backwards and add elements to the new list
+        for (int i = numbers.size() - 1; i >= 0; i--) {
+            reversed.add(numbers.get(i));
+        }
+
+        System.out.println("Reversed list: " + reversed);
+    }
+}
+Output : Reversed list: [5, 4, 3, 2, 1]
