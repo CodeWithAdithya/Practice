@@ -1,0 +1,24 @@
+/* Java Program to Remove a Character at a Specific Index *\
+
+public class RemoveCharacter {
+    public static void main(String[] args) {
+        String input = "Java Programming";
+        int indexToRemove = 4; // The index of the character to remove
+        
+        // Remove character at the specified index
+        String result = input.substring(0, indexToRemove) + input.substring(indexToRemove + 1);
+
+        System.out.println("Original String: " + input);
+        System.out.println("String after removing character at index " + indexToRemove + ": " + result);
+    }
+}
+Output:
+Original String: Java Programming
+String after removing character at index 4: Java rogramming
+
+Explanation:
+input.substring(0, indexToRemove) gets the part of the string before the character to remove.
+input.substring(indexToRemove + 1) gets the part of the string after the character to remove.
+The two parts are concatenated, effectively removing the character at the specified index.
+Example (Removing character at index 4):
+If the input string is "Java Programming", and we remove the character at index 4 ('P').
