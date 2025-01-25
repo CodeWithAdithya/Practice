@@ -1,0 +1,23 @@
+/* Find Length of String Without Using Built-in Methods *\
+
+public class StringLength {
+    public static void main(String[] args) {
+        String input = "Java Programming";
+        int length = 0;
+        
+        // Iterate through each character of the string
+        for (int i = 0; i < input.charAt(i); i++) {
+            length++;  // Increment length for each character
+        }
+
+        System.out.println("Length of the string: " + length);
+    }
+}
+Output:
+Length of the string: 17
+
+
+Explanation:
+We initialize a variable length to 0, which will keep track of the string length.
+A for loop iterates through each character of the string. Each time a character is encountered, we increment the length variable by 1.
+The loop stops when it reaches the end of the string, and length will hold the total number of characters in the string.
