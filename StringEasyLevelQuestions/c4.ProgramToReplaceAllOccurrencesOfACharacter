@@ -1,0 +1,21 @@
+/* Program to Replace All Occurrences of a Character *\
+
+public class ReplaceAllOccurrences {
+    public static void main(String[] args) {
+        String input = "Java Programming";
+        char charToReplace = 'a';  // Character to replace
+        char replacementChar = 'o';  // Character to replace with
+        
+        // Replace all occurrences of 'a' with 'o'
+        String result = input.replace(charToReplace, replacementChar);
+
+        System.out.println("Original String: " + input);
+        System.out.println("String after replacement: " + result);
+    }
+}
+Output:
+Original String: Java Programming
+String after replacement: Jovo Progromming
+
+Explanation:
+replace(char oldChar, char newChar) replaces all occurrences of oldChar in the string with newChar.
