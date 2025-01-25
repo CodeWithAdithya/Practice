@@ -1,0 +1,16 @@
+/* Java Program to Remove All Whitespaces from a String*\
+
+public class RemoveWhitespace {
+    public static void main(String[] args) {
+        String input = "  Java   Programming   Language  ";
+        String result = input.replaceAll("\\s", ""); // Remove all whitespaces
+        System.out.println("Original String: " + input);
+        System.out.println("String without whitespaces: " + result);
+    }
+}
+Output:
+Original String:   Java   Programming   Language  
+String without whitespaces: JavaProgrammingLanguage
+
+The program uses the replaceAll() method with the regex \\s, which matches any whitespace character (spaces, tabs, etc.).
+It replaces all such matches with an empty string, effectively removing all whitespaces from the input string.
