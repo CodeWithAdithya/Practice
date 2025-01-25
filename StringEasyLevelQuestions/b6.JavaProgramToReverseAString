@@ -1,0 +1,45 @@
+/* Java Program to Reverse a String *\
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String original = "Java";
+        String reversed = "";
+        
+        // Loop through the string from the end to the start
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed += original.charAt(i); // Add each character to the result string
+        }
+
+        System.out.println("Original String: " + original);
+        System.out.println("Reversed String: " + reversed);
+    }
+}
+Output:
+Original String: Java
+Reversed String: avaJ
+
+Explanation:
+The loop starts from the last character (original.length() - 1) and goes backwards to the first character (i >= 0).
+original.charAt(i) gets each character in reverse order, and it’s added to the reversed string.
+Output:
+
+
+                                                            or
+
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String original = "Java";
+        String reversed = new StringBuilder(original).reverse().toString(); // Reverse the string
+
+        System.out.println("Original String: " + original);
+        System.out.println("Reversed String: " + reversed);
+    }
+}
+Output:
+Original String: Java
+Reversed String: avaJ
+
+Explanation:
+The StringBuilder class has a reverse() method that reverses the content of the string.
+We then convert the StringBuilder object back to a string using toString().
