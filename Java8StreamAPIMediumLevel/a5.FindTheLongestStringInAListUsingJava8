@@ -1,0 +1,59 @@
+/* Write a program to find the longest string in a list using Java 8 streams *\
+
+import java.util.*;
+import java.util.stream.*;
+
+public class LongestStringFinder {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("apple", "banana", "cherry", "date");
+
+        // Find the longest string using streams
+        String longestString = strings.stream()
+                                      .reduce("", (a, b) -> a.length() >= b.length() ? a : b);
+
+        System.out.println("Longest string: " + longestString);
+    }
+}
+Output:
+Longest string: banana
+
+Explanation:
+strings.stream(): Creates a stream of the list.
+reduce("", (a, b) -> a.length() >= b.length() ? a : b):
+Starts with an identity value of an empty string "".
+Compares the lengths of a (current longest string) and b (current element in the stream).
+Keeps the longer string between a and b.
+Result: The final result is the longest string in the list.
+
+
+
+-------------------------------------------------------------(without java 8)-------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+
+public class LongestStringFinder {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("apple", "banana", "cherry", "date");
+
+        // Initialize variables to keep track of the longest string
+        String longestString = "";
+
+        // Loop through the list to find the longest string
+        for (String str : strings) {
+            if (str.length() > longestString.length()) {
+                longestString = str;
+            }
+        }
+
+        System.out.println("Longest string: " + longestString);
+    }
+}
+Output:
+Longest string: banana
+
+Explanation:
+Initialize longestString: Start with an empty string "".
+Iterate through the list:
+Compare the length of the current string (str) with longestString.
+If the current string is longer, update longestString.
+Result: After the loop, longestString contains the longest string from the list.
