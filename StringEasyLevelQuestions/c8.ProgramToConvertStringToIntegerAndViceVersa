@@ -1,0 +1,22 @@
+/*  Program to Convert String to Integer and Vice Versa *\
+
+public class StringIntegerConversion {
+    public static void main(String[] args) {
+        // Convert String to Integer
+        String str = "12345";
+        int number = Integer.parseInt(str); // Converts string to integer
+        System.out.println("String to Integer: " + number);
+
+        // Convert Integer to String
+        int num = 67890;
+        String numStr = Integer.toString(num); // Converts integer to string
+        System.out.println("Integer to String: " + numStr);
+    }
+}
+Output:
+String to Integer: 12345
+Integer to String: 67890
+
+Explanation:
+String to Integer: Integer.parseInt(str) converts the string str to an integer.
+Integer to String: Integer.toString(num) converts the integer num to a string.
