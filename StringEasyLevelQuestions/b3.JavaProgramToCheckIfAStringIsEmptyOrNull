@@ -1,0 +1,21 @@
+/* Java Program to Check if a String is Empty or Null *\
+
+public class CheckString {
+    public static void main(String[] args) {
+        String input = ""; // Change this to test different cases
+
+        if (input == null) {
+            System.out.println("The string is null.");
+        } else if (input.isEmpty()) {
+            System.out.println("The string is empty.");
+        } else {
+            System.out.println("The string is not null or empty.");
+        }
+    }
+}
+Output:
+The string is empty.
+
+Explanation:
+input == null: Checks if the string is null.
+input.isEmpty(): Checks if the string is empty (length = 0).
