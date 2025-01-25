@@ -1,0 +1,30 @@
+/* Program to Compare Two Strings *\
+
+public class CompareStrings {
+    public static void main(String[] args) {
+        String str1 = "Java";
+        String str2 = "Java";
+        String str3 = "Programming";
+
+        // Compare two strings
+        if (str1.equals(str2)) {
+            System.out.println("str1 and str2 are equal.");
+        } else {
+            System.out.println("str1 and str2 are not equal.");
+        }
+
+        // Compare str1 and str3
+        if (str1.equals(str3)) {
+            System.out.println("str1 and str3 are equal.");
+        } else {
+            System.out.println("str1 and str3 are not equal.");
+        }
+    }
+}
+Output:
+str1 and str2 are equal.
+str1 and str3 are not equal.
+
+Explanation:
+The equals() method compares the content of two strings.
+It returns true if both strings are equal, otherwise false.
