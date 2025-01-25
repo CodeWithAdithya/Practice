@@ -1,0 +1,29 @@
+/* Program to Convert Lowercase to Uppercase in a String and vice versa *\
+
+public class ConvertCase {
+    public static void main(String[] args) {
+        String input = "Java Programming";
+        
+        // Convert lowercase to uppercase and vice versa
+        String converted = "";
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (Character.isLowerCase(ch)) {
+                converted += Character.toUpperCase(ch);
+            } else {
+                converted += Character.toLowerCase(ch);
+            }
+        }
+
+        System.out.println("Original String: " + input);
+        System.out.println("Converted String: " + converted);
+    }
+}
+Output:
+Original String: Java Programming
+Converted String: jAVA pROGRAMMING
+
+Explanation:
+The loop checks each character of the string.
+Character.isLowerCase(ch) checks if the character is lowercase, and if true, it converts it to uppercase using Character.toUpperCase(ch).
+Similarly, it converts uppercase characters to lowercase using Character.toLowerCase(ch).
