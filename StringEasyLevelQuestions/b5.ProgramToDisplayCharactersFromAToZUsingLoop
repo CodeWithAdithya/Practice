@@ -1,0 +1,16 @@
+/* Java Program to Display Characters from A to Z using Loop *\
+
+public class DisplayCharacters {
+    public static void main(String[] args) {
+        // Loop through the ASCII values of uppercase letters (65 to 90)
+        for (char ch = 'A'; ch <= 'Z'; ch++) {
+            System.out.print(ch + " ");
+        }
+    }
+}
+Output:
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+Explanation:
+The loop starts from the character 'A' (ASCII value 65) and runs until it reaches 'Z' (ASCII value 90).
+The char variable ch automatically increments through the alphabet in each iteration.
