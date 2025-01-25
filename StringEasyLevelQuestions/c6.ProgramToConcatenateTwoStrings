@@ -1,0 +1,46 @@
+/* Java Program to Concatenate Two Strings *\
+
+public class ConcatenateStrings {
+    public static void main(String[] args) {
+        String str1 = "Java";
+        String str2 = " Programming";
+
+        // Concatenate two strings
+        String result = str1 + str2;
+
+        System.out.println("First String: " + str1);
+        System.out.println("Second String: " + str2);
+        System.out.println("Concatenated String: " + result);
+    }
+}
+Output:
+First String: Java
+Second String:  Programming
+Concatenated String: Java Programming
+
+Explanation:
+The + operator is used to concatenate the two strings str1 and str2.
+
+
+  -------------------------------------------------------------------------------(or)---------------------------------------------------------------------------------------------------------
+
+  public class ConcatenateStrings {
+    public static void main(String[] args) {
+        String str1 = "Java";
+        String str2 = " Programming";
+
+        // Concatenate two strings using concat() method
+        String result = str1.concat(str2);
+
+        System.out.println("First String: " + str1);
+        System.out.println("Second String: " + str2);
+        System.out.println("Concatenated String: " + result);
+    }
+}
+Output:
+First String: Java
+Second String:  Programming
+Concatenated String: Java Programming
+
+Explanation:
+The concat() method concatenates the string passed as an argument to the current string.
