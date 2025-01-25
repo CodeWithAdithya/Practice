@@ -1,0 +1,26 @@
+/* Program to Split a String into an Array *\
+
+public class SplitString {
+    public static void main(String[] args) {
+        String input = "Java Programming Language";
+        
+        // Split the string by space
+        String[] result = input.split(" "); // Split at spaces
+
+        System.out.println("Original String: " + input);
+        System.out.println("Split String into Array: ");
+        for (String word : result) {
+            System.out.println(word);
+        }
+    }
+}
+Output:
+Original String: Java Programming Language
+Split String into Array: 
+Java
+Programming
+Language
+
+Explanation:
+The split(" ") method splits the string into an array wherever there is a space.
+The result is an array of words that were separated by spaces in the original string.
