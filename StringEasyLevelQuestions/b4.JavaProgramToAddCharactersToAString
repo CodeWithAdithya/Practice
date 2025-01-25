@@ -1,0 +1,49 @@
+/* Java Program to Add Characters to a String *\
+
+public class AddCharacters {
+    public static void main(String[] args) {
+        String original = "Java";
+        char extraChar = '!';
+        String result = original + extraChar; // Add character to string
+
+        System.out.println("Original String: " + original);
+        System.out.println("String after adding character: " + result);
+    }
+}
+Output:
+Original String: Java
+String after adding character: Java!
+
+
+Explanation:
++ operator concatenates the character to the string.
+It works for both single characters and strings.
+
+
+--------------------------------------------------------(what if we want to add char in between)-----------------------------------------------------------------------------------------------
+
+To add a character in between a string, you can use string concatenation with substrings:
+
+public class AddCharInBetween {
+    public static void main(String[] args) {
+        String original = "Jva";
+        char extraChar = 'a'; // Character to insert
+        int position = 1; // Inserting between 'j' and 'v' (index 1)
+
+        // Create the new string by splitting the original string and inserting the character
+        String result = original.substring(0, position) + extraChar + original.substring(position);
+
+        System.out.println("Original String: " + original);
+        System.out.println("String after adding character: " + result);
+    }
+}
+
+Output:
+Original String: Jva
+String after adding character: Java
+
+
+Explanation:
+original.substring(0, position) extracts the string before index 1, which is "J".
+extraChar is the character 'a' that you want to insert.
+original.substring(position) extracts the string after index 1, which is "va".
