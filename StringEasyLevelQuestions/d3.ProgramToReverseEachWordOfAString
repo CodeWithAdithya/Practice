@@ -1,0 +1,44 @@
+/* Program to Reverse Each Word of a String *\
+
+public class ReverseEachWord {
+    public static void main(String[] args) {
+        String input = "Java Programming Language";
+        
+        // Split the string into words
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
+        
+        // Reverse each word
+        for (String word : words) {
+            StringBuilder reversedWord = new StringBuilder(word);
+            result.append(reversedWord.reverse()).append(" ");
+        }
+
+        // Trim the last space and print the result
+        System.out.println("String with each word reversed: " + result.toString().trim());
+    }
+}
+Output:
+String with each word reversed: avaJ gnimmargorP egaugnal
+
+Explanation:
+Split the String into Words:
+
+The input string is split into words using split(" "), which gives an array of words.
+Reverse Each Word:
+
+For each word, we use a StringBuilder to reverse it. The reverse() method of StringBuilder reverses the word.
+Build the Result:
+
+After reversing each word, we append it to the StringBuilder object result, adding a space after each word.
+Trim the Extra Space:
+
+We use trim() to remove any trailing space at the end of the result string.
+Example:
+For the input string "Java Programming Language", the program:
+
+Splits it into ["Java", "Programming", "Language"].
+Reverses each word:
+"Java" becomes "avaJ".
+"Programming" becomes "gnimmargorP".
+"Language" becomes "egaugnal".
