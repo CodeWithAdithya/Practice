@@ -1,0 +1,55 @@
+/* Convert First Letter of Each Word to Uppercase *\
+
+public class CapitalizeFirstLetter {
+    public static void main(String[] args) {
+        String input = "java programming language";
+        
+        // Split the string into words
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
+        
+        // Capitalize first letter of each word
+        for (String word : words) {
+            if (word.length() > 0) {
+                result.append(Character.toUpperCase(word.charAt(0)))
+                      .append(word.substring(1))
+                      .append(" ");
+            }
+        }
+
+        // Trim the last space
+        System.out.println("String with first letter of each word in uppercase: " + result.toString().trim());
+    }
+}
+Output:
+String with first letter of each word in uppercase: Java Programming Language
+
+Steps in the Code:
+Input String: We start with a string: "java programming language".
+
+Splitting the String into Words:
+
+We use input.split(" ") to split the string into an array of words. The space " " is the delimiter.
+After splitting, we get an array like this: ["java", "programming", "language"].
+Processing Each Word:
+
+For each word in the array:
+The first character (word.charAt(0)) is converted to uppercase using Character.toUpperCase().
+The rest of the characters (word.substring(1)) remain the same.
+These parts are combined back using append() to form the modified word.
+Building the Result:
+
+All modified words are appended to a StringBuilder object (result), with a space added after each word.
+After processing all words, StringBuilder holds: "Java Programming Language ".
+Trimming the Extra Space:
+
+We use result.toString().trim() to remove the trailing space at the end of the final string.
+Example:
+For the input string "java programming language", the program:
+
+Splits it into: ["java", "programming", "language"]
+Converts each word's first letter to uppercase:
+"java" becomes "Java"
+"programming" becomes "Programming"
+"language" becomes "Language"
+Combines the words into: "Java Programming Language"
