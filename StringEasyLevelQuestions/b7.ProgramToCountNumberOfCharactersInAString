@@ -1,0 +1,15 @@
+/* Program to Count Number of Characters in a String *\
+
+public class CountCharacters {
+    public static void main(String[] args) {
+        String input = "Java Programming";
+        int count = input.length(); // The length() method gives the number of characters
+
+        System.out.println("Number of characters in the string: " + count);
+    }
+}
+Output:
+Number of characters in the string: 16
+
+Explanation:
+The length() method returns the number of characters in the string (including spaces).
