@@ -1,0 +1,23 @@
+/*  Program to Convert a String to Char Array *\
+
+public class StringToCharArray {
+    public static void main(String[] args) {
+        String input = "Java Programming";
+        
+        // Convert the string to a char array
+        char[] charArray = input.toCharArray();
+        
+        // Print the character array
+        System.out.println("String: " + input);
+        System.out.print("Character Array: ");
+        for (char ch : charArray) {
+            System.out.print(ch + " ");
+        }
+    }
+}
+Output:
+String: Java Programming
+Character Array: J a v a   P r o g r a m m i n g
+
+Explanation:
+toCharArray() method converts the string into an array of characters.
