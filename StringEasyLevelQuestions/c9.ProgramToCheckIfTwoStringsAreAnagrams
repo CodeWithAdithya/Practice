@@ -1,0 +1,30 @@
+/* Program to Check if Two Strings are Anagrams *\
+
+import java.util.Arrays;
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+
+        // Convert strings to character arrays and sort them
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        // Check if sorted arrays are equal
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println("The strings are anagrams.");
+        } else {
+            System.out.println("The strings are not anagrams.");
+        }
+    }
+}
+Output:
+The strings are anagrams.
+
+Explanation:
+Convert both strings to character arrays using toCharArray().
+Sort both arrays using Arrays.sort().
+Use Arrays.equals() to check if the sorted arrays are identical.
