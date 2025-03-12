@@ -71,3 +71,43 @@ output:
 Enter first Number
 1124
 true
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+      int num = 1124;
+        System.out.println(neonNum(num));
+    }
+    static boolean neonNum(int num)
+    {
+      return sumOfDigits(num)==prodOfDigits(num)?true:false;
+    }
+    static int sumOfDigits(int num)
+    {
+        int sum=0;
+        while (num>0)
+        {
+            int last = num%10;
+            num = num/10;
+            sum = sum+ last;
+        }
+        return sum;
+    }
+    static int prodOfDigits(int num)
+    {
+        int prod=1;
+        while (num>0)
+        {
+            int last = num%10;
+            num = num/10;
+            prod = prod*last;
+        }
+        return prod;
+    }
+}
+
+Output:
+true
