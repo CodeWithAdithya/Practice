@@ -68,3 +68,30 @@ Output:
 Enter first Number
 9
 true
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+      int num = 9;
+        System.out.println(neonNum(num));
+    }
+    static boolean neonNum(int num)
+    {
+      return sumOfDigits(num*num)==num?true:false;
+    }
+    static int sumOfDigits(int num)
+    {
+        int sum=0;
+        while (num>0)
+        {
+            int last = num%10;
+            num = num/10;
+            sum = sum+ last;
+        }
+        return sum;
+    }
+}
+Output:
+true
