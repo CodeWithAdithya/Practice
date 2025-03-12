@@ -38,4 +38,33 @@ public class JavaConqueror {
 Output:
 true
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+      int num = 327;
+        System.out.println(fasinatingNum(num));
+    }
+    static boolean fasinatingNum(int num)
+    {
+        int secNum = num*2,thirdNum=num*3;
+        String fullNum=""+num+secNum+thirdNum;
+        for (int i = 0; i < fullNum.length(); i++)
+        {
+            for (int j = i+1; j <fullNum.length() ; j++)
+            {
+             if (fullNum.charAt(i)-'0'==fullNum.charAt(j)-'0')
+             {
+                 return false;
+             }
+            }
+        }
+        return true;
+    }
+}
+
+Output:
+true
