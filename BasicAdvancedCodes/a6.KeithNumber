@@ -211,3 +211,43 @@ Enter Any Num
 742
 7 4 2 13 19 34 66 119 219 404 742 
 742 is a KEITH NUM
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(Most Efficient)
+
+public class Practise
+{
+    public static void main(String[] args)
+    {
+      int num = 742;
+        System.out.println(keithNum(num));
+    }
+    static boolean keithNum(int num)
+    {
+       String strNum = Integer.toString(num);
+       int first = Integer.parseInt(strNum.substring(0,1));
+       int second = Integer.parseInt(strNum.substring(1,2));
+       int third = Integer.parseInt(strNum.substring(2,3));
+       int result = 0,count=0;
+       while (result!=num)
+       {
+           result =   first+second+third;
+           if (result==num)
+           {
+               return true;
+           }
+           if (result>num)
+           {
+            return false;
+           }
+           first = second;
+           second = third;
+           third = result;
+           count++;
+       }
+       return false;
+    }
+}
+
+Output:
+true;
